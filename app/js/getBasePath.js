@@ -2,8 +2,12 @@
 
 export function getBasePath() {
   if (typeof window !== "undefined") {
-    if (window.location.pathname.startsWith("/EIS-Final")) {
-      return "/EIS-Final";
+    const isLocal =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+    if (!isLocal) {
+      const match = window.location.pathname.match(/^(\/[^/]+)/);
+      if (match) return match[1];
     }
   }
 
