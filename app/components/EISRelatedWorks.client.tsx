@@ -16,7 +16,24 @@ function slugFromUrl(manifestUrl: string): string {
   return manifestUrl.split("/").pop()?.replace(".json", "") ?? "";
 }
 
-function WorkCard({ work, base }: { work: WorkEntry; base: string }) {
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function WorkCard({
+  work,
+  base,
+  showYear,
+}: {
+  work: WorkEntry;
+  base: string;
+  showYear: boolean;
+}) {
   const slug = slugFromUrl(work.manifestUrl);
   const href = `${base}/works/${slug}.html`;
   return (
@@ -27,6 +44,9 @@ function WorkCard({ work, base }: { work: WorkEntry; base: string }) {
         </div>
       )}
       <p className="eis-related-card__title">{work.title}</p>
+      {showYear && work.year && (
+        <span className="eis-related-card__year">{work.year}</span>
+      )}
     </a>
   );
 }
@@ -34,32 +54,61 @@ function WorkCard({ work, base }: { work: WorkEntry; base: string }) {
 function RelatedSection({
   label,
   tag,
-  works,
+  pool,
   base,
   searchVal,
+  showYear,
 }: {
   label: string;
   tag: string;
-  works: WorkEntry[];
+  pool: WorkEntry[];
   base: string;
   searchVal: string;
+  showYear: boolean;
 }) {
-  if (works.length === 0) return null;
+  const [displayed, setDisplayed] = useState<WorkEntry[]>(() =>
+    pool.slice(0, 3)
+  );
+
+  useEffect(() => {
+    setDisplayed(pool.slice(0, 3));
+  }, [pool]);
+
+  if (pool.length === 0) return null;
+
+  const canShuffle = pool.length > 3;
+
+  function handleShuffle() {
+    setDisplayed(shuffle(pool).slice(0, 3));
+  }
+
   return (
     <div className="eis-related-section">
       <div className="eis-related-section__header">
         <span className="eis-related-section__label">{label}</span>
         <span className="eis-related-section__tag">{tag}</span>
-        <a
-          href={`${base}/search?q=${encodeURIComponent(searchVal)}`}
-          className="eis-related-section__more"
-        >
-          Browse all →
-        </a>
+        <div className="eis-related-section__actions">
+          {canShuffle && (
+            <button
+              className="eis-related-section__shuffle"
+              onClick={handleShuffle}
+              aria-label="Show different documents"
+              title="Shuffle"
+            >
+              ↻
+            </button>
+          )}
+          <a
+            href={`${base}/search?q=${encodeURIComponent(searchVal)}`}
+            className="eis-related-section__more"
+          >
+            Browse all →
+          </a>
+        </div>
       </div>
       <div className="eis-related-section__grid">
-        {works.map((w) => (
-          <WorkCard key={w.manifestUrl} work={w} base={base} />
+        {displayed.map((w) => (
+          <WorkCard key={w.manifestUrl} work={w} base={base} showYear={showYear} />
         ))}
       </div>
     </div>
@@ -72,7 +121,7 @@ export default function EISRelatedWorks({
   manifestId: string;
 }) {
   const [sections, setSections] = useState<
-    Array<{ label: string; tag: string; works: WorkEntry[]; searchVal: string }>
+    Array<{ label: string; tag: string; pool: WorkEntry[]; searchVal: string }>
   >([]);
   const [loaded, setLoaded] = useState(false);
   const base = getBasePath();
@@ -89,18 +138,16 @@ export default function EISRelatedWorks({
         const state = current?.state ?? "";
 
         const byTheme = themes.length
-          ? others
-              .filter((w) => w.themes.some((t) => themes.includes(t)))
-              .slice(0, 3)
+          ? others.filter((w) => w.themes.some((t) => themes.includes(t)))
           : [];
 
         const byYear = year
-          ? others.filter((w) => w.year === year).slice(0, 3)
+          ? others.filter((w) => w.year === year)
           : [];
 
         const byState =
           state && state !== "Federal / International"
-            ? others.filter((w) => w.state === state).slice(0, 3)
+            ? others.filter((w) => w.state === state)
             : [];
 
         const built = [];
@@ -108,21 +155,21 @@ export default function EISRelatedWorks({
           built.push({
             label: "Same Theme",
             tag: themes[0],
-            works: byTheme,
+            pool: byTheme,
             searchVal: themes[0],
           });
         if (byYear.length)
           built.push({
             label: "Same Year",
             tag: year,
-            works: byYear,
+            pool: byYear,
             searchVal: year,
           });
         if (byState.length)
           built.push({
             label: "Same State",
             tag: state,
-            works: byState,
+            pool: byState,
             searchVal: state,
           });
 
@@ -137,7 +184,7 @@ export default function EISRelatedWorks({
   return (
     <div className="eis-related-works">
       {sections.map((s) => (
-        <RelatedSection key={s.label} {...s} base={base} />
+        <RelatedSection key={s.label} {...s} base={base} showYear={true} />
       ))}
     </div>
   );

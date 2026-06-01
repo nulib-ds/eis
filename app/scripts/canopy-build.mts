@@ -12,12 +12,30 @@
  */
 
 import {orchestrate} from "@canopy-iiif/app/orchestrator";
+import * as fs from "fs";
+import * as path from "path";
 
 const err = (msg: string): void => {
   console.error(`[canopy][error] ${msg}`);
 };
 
-orchestrate().catch((error: unknown) => {
+function deployFacets(): void {
+  const src = path.resolve(".cache/iiif/facets.json");
+  const destDir = path.resolve("site/api/search");
+  const dest = path.join(destDir, "facets.json");
+  try {
+    if (!fs.existsSync(src)) return;
+    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, {recursive: true});
+    fs.copyFileSync(src, dest);
+    console.log("[canopy] ✓ Deployed facets.json");
+  } catch (e) {
+    console.warn("[canopy] Could not deploy facets.json:", e);
+  }
+}
+
+orchestrate().then(() => {
+  deployFacets();
+}).catch((error: unknown) => {
   const message =
     error &&
     typeof error === "object" &&
@@ -33,3 +51,4 @@ orchestrate().catch((error: unknown) => {
   err(message);
   process.exit(1);
 });
+

@@ -8,6 +8,7 @@
 export const components = {
   Example: './Example.tsx',
   MetadataField: './MetadataField.tsx',
+  AttributionStatement: './AttributionStatement.tsx',
 };
 
 // Map browser-only components to their source files; the builder bundles
@@ -27,5 +28,6 @@ export const clientComponents = {
   ScrollExplore: './ScrollExplore.client.tsx',
   StickyLightbox: './Stickylightbox.client.tsx',
   EISMap: './EISMap.client.jsx',
+  CitationGenerator: './CitationGenerator.client.tsx',
 };
 

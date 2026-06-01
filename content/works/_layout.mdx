@@ -5,7 +5,6 @@ type: work
 import {
   Label,
   Summary,
-  RequiredStatement,
   References,
 } from "@canopy-iiif/app/ui/server";
 
@@ -46,7 +45,8 @@ import {
     <References />
   </div>
   <div className="canopy-work--attribution">
-    <RequiredStatement manifest={props.manifest} />
+    <AttributionStatement manifest={props.manifest} />
+    <CitationGenerator manifest={props.manifest} />
     <MetadataField manifest={props.manifest} field="Themes" label="Themes" />
     {props.manifest.homepage?.[0]?.id && (
       <a href={props.manifest.homepage[0].id} className="canopy-work--source-link" target="_blank" rel="noreferrer">

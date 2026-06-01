@@ -12,51 +12,194 @@ const STATES = [
   "Texas","Washington","West Virginia","Wisconsin","Wyoming",
 ];
 
-const YEARS = ["1970","1972","1973","1974","1975","1976","1977","1978","1980","1981"];
-
-const THEMES = [
-  "Climate and Weather Modification","Energy Systems",
-  "Governance and Institutional Control","Indigenous Narratives and Sovereignty",
-  "Industrial Production and Materials","Place Based Development Conflicts",
-  "Transportation Infrastructure","Urban Development","Water Systems",
-  "Wildlife and Natural Areas",
+const YEARS: { label: string; slug: string }[] = [
+  { label: "1970", slug: "1970" },
+  { label: "1972", slug: "1972" },
+  { label: "1973", slug: "1973" },
+  { label: "1974", slug: "1974" },
+  { label: "1975", slug: "1975" },
+  { label: "1976", slug: "1976" },
+  { label: "1977", slug: "1977" },
+  { label: "1978", slug: "1978" },
+  { label: "1980", slug: "1980" },
+  { label: "1981", slug: "1981" },
 ];
 
-type Section = "state" | "year" | "theme" | null;
+const THEMES: { label: string; slug: string }[] = [
+  { label: "Climate and Weather Modification", slug: "climate-and-weather-modification" },
+  { label: "Energy Systems", slug: "energy-systems" },
+  { label: "Governance and Institutional Control", slug: "governance-and-institutional-control" },
+  { label: "Indigenous Narratives and Sovereignty", slug: "indigenous-narratives-and-sovereignty" },
+  { label: "Industrial Production and Materials", slug: "industrial-production-and-materials" },
+  { label: "Place Based Development Conflicts", slug: "place-based-development-conflicts" },
+  { label: "Transportation Infrastructure", slug: "transportation-infrastructure" },
+  { label: "Urban Development", slug: "urban-development" },
+  { label: "Water Systems", slug: "water-systems" },
+  { label: "Wildlife and Natural Areas", slug: "wildlife-and-natural-areas" },
+];
 
-function getActiveFilter(): string {
-  if (typeof window === "undefined") return "";
-  const params = new URLSearchParams(window.location.search);
-  return params.get("q") || "";
+const AGENCIES: { label: string; slug: string }[] = [
+  { label: "Army Corps of Engineers", slug: "united-states-army-corps-of-engineers" },
+  { label: "Atomic Energy Commission", slug: "us-atomic-energy-commission" },
+  { label: "Bureau of Indian Affairs", slug: "united-states-bureau-of-indian-affairs" },
+  { label: "Bureau of Land Management", slug: "united-states-bureau-of-land-management" },
+  { label: "Bureau of Outdoor Recreation", slug: "united-states-bureau-of-outdoor-recreation" },
+  { label: "Bureau of Reclamation", slug: "united-states-bureau-of-reclamation" },
+  { label: "Consumer Product Safety Commission", slug: "us-consumer-product-safety-commission" },
+  { label: "Dept. of Housing and Urban Development", slug: "united-states-department-of-housing-and-urban-development" },
+  { label: "Dept. of Labor", slug: "united-states-department-of-labor" },
+  { label: "Dept. of State", slug: "united-states-department-of-state" },
+  { label: "Economic Development Administration", slug: "united-states-economic-development-administration" },
+  { label: "Energy Research and Development Admin.", slug: "united-states-energy-research-and-development-administration" },
+  { label: "Environmental Protection Agency", slug: "united-states-environmental-protection-agency" },
+  { label: "Federal Aviation Administration", slug: "united-states-federal-aviation-administration" },
+  { label: "Federal Highway Administration", slug: "united-states-federal-highway-administration" },
+  { label: "Federal Power Commission", slug: "united-states-federal-power-commission" },
+  { label: "Food and Drug Administration", slug: "united-states-food-and-drug-administration" },
+  { label: "Forest Service", slug: "united-states-forest-service" },
+  { label: "Interstate Commerce Commission", slug: "united-states-interstate-commerce-commission" },
+  { label: "National Aeronautics and Space Administration", slug: "united-states-national-aeronautics-and-space-administration" },
+  { label: "National Highway Traffic Safety Admin.", slug: "united-states-national-highway-traffic-safety-administration" },
+  { label: "National Oceanic and Atmospheric Admin.", slug: "united-states-national-oceanic-and-atmospheric-administration" },
+  { label: "National Park Service", slug: "united-states-national-park-service" },
+  { label: "National Science Foundation", slug: "national-science-foundation-us" },
+  { label: "Navy", slug: "united-states-navy" },
+  { label: "Nuclear Regulatory Commission", slug: "us-nuclear-regulatory-commission" },
+  { label: "Rural Electrification Administration", slug: "united-states-rural-electrification-administration" },
+  { label: "Tennessee Valley Authority", slug: "tennessee-valley-authority" },
+  { label: "Urban Mass Transportation Administration", slug: "united-states-urban-mass-transportation-administration" },
+];
+
+type SectionId = "state" | "year" | "theme" | "agency";
+
+interface ActiveFilters {
+  state: string | null;
+  year: string[];
+  theme: string[];
+  agency: string[];
 }
 
-function navigate(value: string) {
+function readFiltersFromUrl(): ActiveFilters {
+  if (typeof window === "undefined") return { state: null, year: [], theme: [], agency: [] };
+  const params = new URLSearchParams(window.location.search);
+  return {
+    state: params.get("q") || null,
+    year: params.get("year") ? params.get("year")!.split(",").filter(Boolean) : [],
+    theme: params.get("themes") ? params.get("themes")!.split(",").filter(Boolean) : [],
+    agency: params.get("bureau") ? params.get("bureau")!.split(",").filter(Boolean) : [],
+  };
+}
+
+function buildUrl(filters: ActiveFilters): string {
   const base = getBasePath();
-  const current = getActiveFilter();
-  if (current === value) {
-    window.location.href = `${base}/search`;
-  } else {
-    window.location.href = `${base}/search?q=${encodeURIComponent(value)}`;
-  }
+  const params = new URLSearchParams();
+
+  if (filters.state) params.set("q", filters.state);
+
+  const hasFacets =
+    filters.year.length > 0 || filters.theme.length > 0 || filters.agency.length > 0;
+
+  if (hasFacets) params.set("type", "work");
+  if (filters.year.length > 0) params.set("year", filters.year.join(","));
+  if (filters.theme.length > 0) params.set("themes", filters.theme.join(","));
+  if (filters.agency.length > 0) params.set("bureau", filters.agency.join(","));
+
+  const qs = params.toString();
+  return qs ? `${base}/search?${qs}` : `${base}/search`;
+}
+
+function totalActiveCount(filters: ActiveFilters): number {
+  return (filters.state ? 1 : 0) +
+    filters.year.length +
+    filters.theme.length +
+    filters.agency.length;
 }
 
 export default function EISFilterBar() {
-  const [open, setOpen] = useState<Section>(null);
-  const [active, setActive] = useState("");
+  const [open, setOpen] = useState<SectionId | null>(null);
+  const [filters, setFilters] = useState<ActiveFilters>({ state: null, year: [], theme: [], agency: [] });
 
   useEffect(() => {
-    setActive(getActiveFilter());
+    setFilters(readFiltersFromUrl());
   }, []);
 
-  const sections: { id: Section; label: string; values: string[] }[] = [
-    { id: "state", label: "State", values: STATES },
-    { id: "year",  label: "Year",  values: YEARS },
-    { id: "theme", label: "Theme", values: THEMES },
+  function navigateTo(nextFilters: ActiveFilters) {
+    window.location.href = buildUrl(nextFilters);
+  }
+
+  function toggleState(value: string) {
+    const next = { ...filters, state: filters.state === value ? null : value };
+    navigateTo(next);
+  }
+
+  function toggleFacet(key: "year" | "theme" | "agency", slug: string) {
+    const current = filters[key];
+    const next = current.includes(slug)
+      ? current.filter((s) => s !== slug)
+      : [...current, slug];
+    navigateTo({ ...filters, [key]: next });
+  }
+
+  function clearAll() {
+    navigateTo({ state: null, year: [], theme: [], agency: [] });
+  }
+
+  const activeCount = totalActiveCount(filters);
+
+  const sections: {
+    id: SectionId;
+    label: string;
+    activeCount: number;
+  }[] = [
+    { id: "state", label: "State", activeCount: filters.state ? 1 : 0 },
+    { id: "year",  label: "Year",  activeCount: filters.year.length },
+    { id: "theme", label: "Theme", activeCount: filters.theme.length },
+    { id: "agency", label: "Agency", activeCount: filters.agency.length },
   ];
 
-  const activeSection = active
-    ? sections.find((s) => s.values.includes(active))?.id ?? null
-    : null;
+  function renderPanel() {
+    if (!open) return null;
+
+    if (open === "state") {
+      return STATES.map((v) => (
+        <button
+          key={v}
+          className={[
+            "eis-filter-pill",
+            filters.state === v ? "eis-filter-pill--active" : "",
+          ].filter(Boolean).join(" ")}
+          onClick={() => toggleState(v)}
+        >
+          {v}
+        </button>
+      ));
+    }
+
+    const facetMap: Record<"year" | "theme" | "agency", { label: string; slug: string }[]> = {
+      year: YEARS,
+      theme: THEMES,
+      agency: AGENCIES,
+    };
+
+    if (open === "year" || open === "theme" || open === "agency") {
+      const items = facetMap[open];
+      const active = filters[open];
+      return items.map(({ label, slug }) => (
+        <button
+          key={slug}
+          className={[
+            "eis-filter-pill",
+            active.includes(slug) ? "eis-filter-pill--active" : "",
+          ].filter(Boolean).join(" ")}
+          onClick={() => toggleFacet(open, slug)}
+        >
+          {label}
+        </button>
+      ));
+    }
+
+    return null;
+  }
 
   return (
     <div className="eis-filter-bar">
@@ -68,48 +211,26 @@ export default function EISFilterBar() {
             className={[
               "eis-filter-tab",
               open === s.id ? "eis-filter-tab--open" : "",
-              activeSection === s.id ? "eis-filter-tab--active" : "",
-            ]
-              .filter(Boolean)
-              .join(" ")}
+              s.activeCount > 0 ? "eis-filter-tab--active" : "",
+            ].filter(Boolean).join(" ")}
             onClick={() => setOpen(open === s.id ? null : s.id)}
           >
             {s.label}
-            {activeSection === s.id && (
+            {s.activeCount > 0 && (
               <span className="eis-filter-tab__dot" />
             )}
           </button>
         ))}
-        {active && (
-          <button
-            className="eis-filter-clear"
-            onClick={() => navigate(active)}
-          >
-            Clear filter
+        {activeCount > 0 && (
+          <button className="eis-filter-clear" onClick={clearAll}>
+            Clear {activeCount === 1 ? "filter" : `${activeCount} filters`}
           </button>
         )}
       </div>
 
       {open && (
         <div className="eis-filter-panel">
-          {sections
-            .find((s) => s.id === open)!
-            .values.map((v) => (
-              <button
-                key={v}
-                className={[
-                  "eis-filter-pill",
-                  active === v ? "eis-filter-pill--active" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                onClick={() => {
-                  navigate(v);
-                }}
-              >
-                {v}
-              </button>
-            ))}
+          {renderPanel()}
         </div>
       )}
     </div>
