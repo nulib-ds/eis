@@ -1,0 +1,218 @@
+/* ── "What is an EIS?" intro (homepage) ──────────────────────
+   Clean, heading-led editorial style matching the other homepage
+   sections (no tinted box). Purple accent (#6A5885) for the link. */
+.eis-intro {
+  margin: -1.5rem 0 2.5rem;
+}
+
+.eis-intro-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-gray-700, #374151);
+  max-width: 72ch;
+  margin: 0 0 1rem;
+}
+
+.eis-intro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6A5885;
+  text-decoration: none;
+}
+
+.eis-intro-link:hover {
+  color: #4e3270;
+}
+
+.eis-intro-link__arrow {
+  transition: transform 0.2s;
+}
+
+.eis-intro-link:hover .eis-intro-link__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 480px) {
+  .eis-intro-body {
+    font-size: 0.98rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Random EIS widget (homepage) ─────────────────────────── */
+.eis-random {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Cover image floats like a book lying on the page — no box */
+.eis-random__book {
+  flex: 0 0 auto;
+  display: block;
+  line-height: 0;
+  transform: rotate(-2.5deg);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.eis-random__book img {
+  width: 130px;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  filter: drop-shadow(3px 6px 10px rgba(0, 0, 0, 0.28));
+}
+
+.eis-random__book:hover {
+  transform: rotate(-1deg) scale(1.06);
+}
+
+.eis-random__info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.eis-random__title {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 0.9vw + 0.7rem, 1.35rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1a1a1a;
+  text-decoration: none;
+  margin: 0 0 0.5rem;
+}
+
+.eis-random__title:hover {
+  color: #6A5885;
+}
+
+.eis-random__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0;
+}
+
+.eis-random__pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.16em 0.55em;
+  border-radius: 0.25rem;
+  line-height: 1.4;
+}
+
+.eis-random__pill--year {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.eis-random__pill--state {
+  background: #ede9f5;
+  color: #4b3b6e;
+}
+
+.eis-random__pill--theme {
+  background: #fff;
+  border: 1.5px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.68rem;
+}
+
+/* Action row: hero button + caption (left), jump-link (far right) */
+.eis-random__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  position: relative;
+  margin-top: 0.95rem;
+  padding-top: 0.95rem;
+}
+
+.eis-random__actions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  max-width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #d9d2e6 0%, #e6e1ee 45%, transparent 100%);
+}
+
+.eis-random__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  background: #faf9fc;
+  border: 1px solid #e3dded;
+  border-radius: 0.4rem;
+  color: #5b4a78;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.eis-random__btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.eis-random__btn:hover {
+  background: #f1edf6;
+  border-color: #c9bfdc;
+  color: #4e3270;
+}
+
+.eis-random__btn--spinning svg {
+  animation: eis-spin 0.35s linear;
+}
+
+/* Small-print jump-link to the theme explorer */
+.eis-explore-jump {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6A5885;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.eis-explore-jump:hover {
+  color: #4e3270;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.eis-explore-jump__arrow {
+  transition: transform 0.45s ease;
+}
+
+.eis-explore-jump:hover .eis-explore-jump__arrow {
+  transform: translateY(2px);
+}
+
+@media (max-width: 600px) {
+  .eis-random {
+    gap: 1.25rem;
+  }
+  .eis-random__book img {
+    width: 100px;
+  }
+}

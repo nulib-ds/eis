@@ -23,7 +23,7 @@
   },
   "author": "Mat Jordan <mat@northwestern.edu>",
   "homepage": "https://canopy-iiif.github.io/app/",
-  "repository": {
+    "repository": {
     "type": "git",
     "url": "git+https://github.com/canopy-iiif/app.git",
     "directory": "packages/app"

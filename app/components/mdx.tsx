@@ -24,6 +24,7 @@ export const clientComponents = {
   EISRelatedWorks: './EISRelatedWorks.client.tsx',
   EISFeaturedWorks: './EISFeaturedWorks.client.tsx',
   EISRelatedThemes: './EISRelatedThemes.client.tsx',
+  EISRandomDoc: './EISRandomDoc.client.tsx',
   LightboxImage: './LightboxImage.client.tsx',
   ScrollExplore: './ScrollExplore.client.tsx',
   StickyLightbox: './Stickylightbox.client.tsx',
