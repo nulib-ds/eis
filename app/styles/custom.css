@@ -383,7 +383,190 @@ p.canopy-work--summary {
   color: #854d0e;
 }
 
-/* ── about/impact bar chart ──────────────────────────────── */
+/* ── Notable Quotes from Stakeholders (stance-grouped) ───── */
+.eis-quotes {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #d9d9d9;
+}
+
+.eis-quotes__group {
+  margin-top: 1.5rem;
+}
+
+.eis-quotes__stance {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 0.25em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eis-quotes__group--in_favor .eis-quotes__stance {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.eis-quotes__group--opposed .eis-quotes__stance {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.eis-quotes__group--conditional .eis-quotes__stance {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.eis-quotes__group--neutral .eis-quotes__stance {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.eis-quotes__list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.eis-quotes__item {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #cfc7dd;
+}
+
+.eis-quotes__quote {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-style: italic;
+  max-width: 76ch;
+}
+
+.eis-quotes__attribution {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: #6A5885;
+}
+
+/* ── Stakeholder Quotes (standalone tabbed box) ──────────── */
+.eis-quotes-box {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.75rem 2rem 2rem;
+  background: #f2f0f6;
+  border-top: 3px solid #6A5885;
+}
+
+.eis-quotes-box__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6A5885;
+  margin: 0 0 0.35rem;
+}
+
+.eis-quotes-box__hint {
+  font-size: 0.85rem;
+  color: #6b6577;
+  margin: 0 0 1.25rem;
+}
+
+.eis-quotes-box__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.eis-quotes-box__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid #cfc7dd;
+  border-radius: 999px;
+  background: #fff;
+  color: #4a4458;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.eis-quotes-box__tab:hover {
+  border-color: #6A5885;
+}
+
+.eis-quotes-box__tab--active {
+  background: #6A5885;
+  border-color: #6A5885;
+  color: #fff;
+}
+
+.eis-quotes-box__count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.eis-quotes-box .eis-quotes__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.eis-quotes-box .eis-quotes__item {
+  margin-bottom: 1.1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #cfc7dd;
+}
+
+.eis-quotes-box .eis-quotes__stance {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  padding: 0.12em 0.6em;
+  border-radius: 0.25em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.eis-quotes-box .eis-quotes__stance.eis-quotes__group--in_favor {
+  background: #dcfce7;
+  color: #166534;
+}
+.eis-quotes-box .eis-quotes__stance.eis-quotes__group--opposed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.eis-quotes-box .eis-quotes__stance.eis-quotes__group--conditional {
+  background: #fef9c3;
+  color: #854d0e;
+}
+.eis-quotes-box .eis-quotes__stance.eis-quotes__group--neutral {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.eis-quotes-box .eis-quotes__quote {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  font-style: italic;
+  max-width: 76ch;
+}
+
+.eis-quotes-box .eis-quotes__attribution {
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  color: #6A5885;
+}
+
+/* about/impact bar chart ──────────────────────────────── */
 .bar-group {
   cursor: pointer;
 }

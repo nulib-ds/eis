@@ -1,0 +1,251 @@
+{
+  "doc_id": "P0491_35556036532349",
+  "work_id": "a09ad3f4-1191-442f-8219-545f2e0a62a0",
+  "title": "Sundesert Nuclear Power Plant units 1-2, construction : environmental impact statement.",
+  "estimated_pages": 648,
+  "n_entries": 84,
+  "verdict_counts": { "PASS": 16, "PASS_WITH_NOTE": 5, "RE_EXTRACT": 39, "HUMAN_REVIEW": 24 },
+  "_note": "Condensed sample: preserves the fields build-eis-quotes.mts reads. A few RE_EXTRACT/HUMAN_REVIEW entries are kept to exercise the verdict filter. Replace with the full pipeline artifact.",
+  "entries": [
+    {
+      "sequence": 1,
+      "entity": "Bureau of Land Management",
+      "kind": "agency",
+      "role": "cooperating agency / DOI bureau",
+      "stance": "in_favor",
+      "summary_quote": "The BLM and BuRec of DOI have participated extensively in the preparation of those sections of the DES relevant to land exchange, transmission lines, and water supply.",
+      "evidence_pages": ["1"],
+      "critic": { "verdict": "RE_EXTRACT" }
+    },
+    {
+      "sequence": 4,
+      "entity": "California Energy Resources Conservation and Development Commission",
+      "kind": "agency",
+      "role": "state regulatory body / reviewer",
+      "stance": "conditional",
+      "summary_quote": "The decision states, \"The Notice of Intent is approved, subject to the conditions and modifications set forth in Appendix A, for one unit of the proposed multiple unit facility on the basis of there being one acceptable site capable of use for two units of the type proposed for the Sundesert Nuclear Project.\"",
+      "evidence_pages": ["1"],
+      "critic": { "verdict": "RE_EXTRACT" }
+    },
+    {
+      "sequence": 10,
+      "entity": "City of Riverside",
+      "kind": "government",
+      "role": "project participant / 4% owner of Sundesert Nuclear Plant",
+      "stance": "in_favor",
+      "summary_quote": "Other entities planning to participate with SDG&E in the proposed plant are: the City of Anaheim (Anaheim), the City of Burbank (Burbank), the City of Glendale (Glendale), the City of Los Angeles Department of Water and Power (LADWP), the City of Pasadena (Pasadena), the City of Riverside (Riverside), and the California Department of Water Resources (CDWR).",
+      "evidence_pages": ["1", "385-435"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 13,
+      "entity": "San Diego Gas and Electric Company (SDG&E)",
+      "kind": "organization",
+      "role": "applicant / project proponent",
+      "stance": "in_favor",
+      "summary_quote": "San Diego Gas and Electric Company has provided joint frequency distributions of wind speed and direction by atmospheric stability class, based on the vertical temperature gradient, collected onsite during the period June 1, 1975, to May 31, 1976.",
+      "evidence_pages": ["1", "145-195", "193-243", "339", "579"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 15,
+      "entity": "U.S. Department of the Interior",
+      "kind": "agency",
+      "role": "co-preparer of EIS / cooperating agency",
+      "stance": "in_favor",
+      "summary_quote": "This Environmental Statement was prepared by the U.S. Nuclear Regulatory Commission, Office of Nuclear Reactor Regulation, and the U.S. Department of the Interior, Bureau of Land Management and Bureau of Reclamation.",
+      "evidence_pages": ["1"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 31,
+      "entity": "Bureau of Reclamation",
+      "kind": "agency",
+      "role": "federal water management agency / cooperating agency",
+      "stance": "neutral",
+      "summary_quote": "It may be noted that the Bureau of Reclamation considers wells on the Palo Verde Mesa to be independent of the Colorado River system (ER, p. 2.4-31).",
+      "evidence_pages": ["145-195"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 34,
+      "entity": "U.S. Fish and Wildlife Service",
+      "kind": "agency",
+      "role": "federal agency operating the Cibola National Wildlife Refuge",
+      "stance": "neutral",
+      "summary_quote": "Although the Cibola National Wildlife Refuge is not a major water user, it is a Federal project operated by the U.S. Fish and Wildlife Service.",
+      "evidence_pages": ["145-195", "579"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 35,
+      "entity": "Western Systems Coordinating Council",
+      "kind": "organization",
+      "role": "regional transmission planning body",
+      "stance": "neutral",
+      "summary_quote": "The Western Systems Coordinating Council (WSCC) makes transmission line routing projections to ensure adequate electric service interties between western utilities.",
+      "evidence_pages": ["145-195", "385-435"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 37,
+      "entity": "Bureau of Land Management (BLM)",
+      "kind": "agency",
+      "role": "cooperating agency / land manager",
+      "stance": "neutral",
+      "summary_quote": "This line will be discussed in a separate Environmental Statement being written by Bureau of Land Management (BLM) in Arizona.",
+      "evidence_pages": ["193-243", "613"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 40,
+      "entity": "California Public Utilities Commission",
+      "kind": "agency",
+      "role": "regulatory body governing overhead line construction",
+      "stance": "neutral",
+      "summary_quote": "Construction, maintenance, and operation of all overhead electrical supply and communication lines in the state of California are governed by \"Rules for Overhead Electric Line Construction,\" General Order No. 95, issued by the California Public Utilities Commission.",
+      "evidence_pages": ["193-243"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 43,
+      "entity": "SDG&E",
+      "kind": "organization",
+      "role": "San Diego Gas and Electric Company, project applicant",
+      "stance": "in_favor",
+      "summary_quote": "Each of the three proposed 500-kV transmission lines, according to SDG&E, would be designed with sufficient capacity to carry at least the entire output of the Sundesert Nuclear Plant to ensure reliability.",
+      "evidence_pages": ["193-243", "337-387", "481-531"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 45,
+      "entity": "California Department of Fish and Game",
+      "kind": "agency",
+      "role": "state wildlife agency, referenced in impact analysis",
+      "stance": "neutral",
+      "summary_quote": "If this tract were acquired for a wildlife refuge, the California Department of Fish and Game would construct a lake near the southwest corner.",
+      "evidence_pages": ["285", "481-531", "579"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 51,
+      "entity": "Bureau of Land Management (BLM)",
+      "kind": "agency",
+      "role": "federal land management agency, commenter/reviewer",
+      "stance": "conditional",
+      "summary_quote": "The NRC staff concludes that these impacts are acceptable, if mitigated as suggested by the Bureau of Land Management (BLM).",
+      "evidence_pages": ["337-387"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 52,
+      "entity": "Department of Energy (DOE)",
+      "kind": "agency",
+      "role": "federal agency proposing spent fuel storage policy",
+      "stance": "in_favor",
+      "summary_quote": "On October 18, 1977, the Department of Energy (DOE) announced a proposal whereby the Federal government will accept and take title to spent nuclear reactor fuel from utilities on payment of a one-time charge.",
+      "evidence_pages": ["337-387"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 54,
+      "entity": "NRC staff",
+      "kind": "agency",
+      "role": "Nuclear Regulatory Commission staff, economic and environmental analyst",
+      "stance": "in_favor",
+      "summary_quote": "The NRC staff concurs with the applicant's position that, under present state law, the increased assessed valuation created by the nuclear plant construction should result in a sizable decrease in the PVUSD's annual tax rate for operations.",
+      "evidence_pages": ["337-387", "385-435", "436", "438", "457", "460", "529", "579"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 55,
+      "entity": "Nuclear Regulatory Commission",
+      "kind": "agency",
+      "role": "federal regulatory agency, rulemaking authority",
+      "stance": "in_favor",
+      "summary_quote": "On March 14, 1977, the Nuclear Regulatory Commission presented in the Federal Register (42 FR 13803) an interim rule regarding the environmental considerations of the uranium fuel cycle.",
+      "evidence_pages": ["337-387"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 59,
+      "entity": "Oak Ridge National Laboratory",
+      "kind": "organization",
+      "role": "developer of independent econometric model used by NRC staff",
+      "stance": "neutral",
+      "summary_quote": "an independent regional forecast was prepared by the NRC staff using an econometric electrical energy demand model developed at Oak Ridge National Laboratory (ORNL).",
+      "evidence_pages": ["385-435"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 60,
+      "entity": "San Diego Gas & Electric Company",
+      "kind": "organization",
+      "role": "applicant / primary owner (50%) of Sundesert Nuclear Plant",
+      "stance": "in_favor",
+      "summary_quote": "San Diego Gas and Electric Company (SDG&E), the applicant, will be assumed to retain the remaining 50% (974 MWe) of Sundesert.",
+      "evidence_pages": ["385-435"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 61,
+      "entity": "applicant",
+      "kind": "organization",
+      "role": "project applicant (SDG&E / Sundesert project proponent)",
+      "stance": "in_favor",
+      "summary_quote": "Multicell mechanical-draft cooling towers are proposed by the applicant as the most suitable method for waste heat dissipation at the Sundesert Nuclear Plant.",
+      "evidence_pages": ["459"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 68,
+      "entity": "BLM",
+      "kind": "agency",
+      "role": "Bureau of Land Management, cooperating agency/commenter",
+      "stance": "in_favor",
+      "summary_quote": "The NRC staff concurs with BLM and SDG&E that the proposed corridor poses fewer significant impacts than the alternative.",
+      "evidence_pages": ["481-531"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 70,
+      "entity": "Department of the Interior",
+      "kind": "agency",
+      "role": "federal agency, commenter",
+      "stance": "neutral",
+      "summary_quote": "However, the Department of the Interior does not foreclose the adoption of this alternative.",
+      "evidence_pages": ["481-531"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 77,
+      "entity": "NRC staff",
+      "kind": "agency",
+      "role": "Nuclear Regulatory Commission staff, EIS author/evaluator",
+      "stance": "opposed",
+      "summary_quote": "Consequently, the NRC staff does not consider this an acceptable alternative.",
+      "evidence_pages": ["481-531"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 80,
+      "entity": "San Diego Gas and Electric Company",
+      "kind": "organization",
+      "role": "project applicant",
+      "stance": "conditional",
+      "summary_quote": "The applicant has made an initial response to the proposal (ER, p. Q.3-1) indicating its willingness to consider such an alternative, but no detailed study has been performed.",
+      "evidence_pages": ["481-531"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 84,
+      "entity": "Forest Service",
+      "kind": "agency",
+      "role": "federal land management agency",
+      "stance": "opposed",
+      "summary_quote": "The Forest Service is extremely concerned that no alternative is proposed for this area.",
+      "evidence_pages": ["612"],
+      "critic": { "verdict": "RE_EXTRACT" }
+    }
+  ]
+}

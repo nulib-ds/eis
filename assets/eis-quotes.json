@@ -1,0 +1,664 @@
+{
+  "a09ad3f4-1191-442f-8219-545f2e0a62a0": {
+    "title": "Sundesert Nuclear Power Plant units 1-2, construction : environmental impact statement.",
+    "stances": {
+      "in_favor": [
+        {
+          "entity": "applicant",
+          "kind": "organization",
+          "role": "project applicant (SDG&E / Sundesert project proponent)",
+          "quote": "Multicell mechanical-draft cooling towers are proposed by the applicant as the most suitable method for waste heat dissipation at the Sundesert Nuclear Plant.",
+          "pages": [
+            "459"
+          ],
+          "score": 1.5
+        },
+        {
+          "entity": "City of Riverside",
+          "kind": "government",
+          "role": "project participant / 4% owner of Sundesert Nuclear Plant",
+          "quote": "Other entities planning to participate with SDG&E in the proposed plant are: the City of Anaheim (Anaheim), the City of Burbank (Burbank), the City of Glendale (Glendale), the City of Los Angeles Department of Water and Power (LADWP), the City of Pasadena (Pasadena), the City of Riverside (Riverside), and the California Department of Water Resources (CDWR).",
+          "pages": [
+            "1",
+            "385-435"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "NRC staff",
+          "kind": "agency",
+          "role": "Nuclear Regulatory Commission staff, economic and environmental analyst",
+          "quote": "The NRC staff concurs with the applicant's position that, under present state law, the increased assessed valuation created by the nuclear plant construction should result in a sizable decrease in the PVUSD's annual tax rate for operations.",
+          "pages": [
+            "337-387",
+            "385-435",
+            "436",
+            "438",
+            "457",
+            "460",
+            "529",
+            "579"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "San Diego Gas and Electric Company (SDG&E)",
+          "kind": "organization",
+          "role": "applicant / project proponent",
+          "quote": "San Diego Gas and Electric Company has provided joint frequency distributions of wind speed and direction by atmospheric stability class, based on the vertical temperature gradient, collected onsite during the period June 1, 1975, to May 31, 1976.",
+          "pages": [
+            "1",
+            "145-195",
+            "193-243",
+            "339",
+            "579"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "U.S. Department of the Interior",
+          "kind": "agency",
+          "role": "co-preparer of EIS / cooperating agency",
+          "quote": "This Environmental Statement was prepared by the U.S. Nuclear Regulatory Commission, Office of Nuclear Reactor Regulation, and the U.S. Department of the Interior, Bureau of Land Management and Bureau of Reclamation.",
+          "pages": [
+            "1"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "SDG&E",
+          "kind": "organization",
+          "role": "San Diego Gas and Electric Company, project applicant",
+          "quote": "Each of the three proposed 500-kV transmission lines, according to SDG&E, would be designed with sufficient capacity to carry at least the entire output of the Sundesert Nuclear Plant to ensure reliability.",
+          "pages": [
+            "193-243",
+            "337-387",
+            "481-531"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Department of Energy (DOE)",
+          "kind": "agency",
+          "role": "federal agency proposing spent fuel storage policy",
+          "quote": "On October 18, 1977, the Department of Energy (DOE) announced a proposal whereby the Federal government will accept and take title to spent nuclear reactor fuel from utilities on payment of a one-time charge.",
+          "pages": [
+            "337-387"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Nuclear Regulatory Commission",
+          "kind": "agency",
+          "role": "federal regulatory agency, rulemaking authority",
+          "quote": "On March 14, 1977, the Nuclear Regulatory Commission presented in the Federal Register (42 FR 13803) an interim rule regarding the environmental considerations of the uranium fuel cycle.",
+          "pages": [
+            "337-387"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "San Diego Gas & Electric Company",
+          "kind": "organization",
+          "role": "applicant / primary owner (50%) of Sundesert Nuclear Plant",
+          "quote": "San Diego Gas and Electric Company (SDG&E), the applicant, will be assumed to retain the remaining 50% (974 MWe) of Sundesert.",
+          "pages": [
+            "385-435"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "BLM",
+          "kind": "agency",
+          "role": "Bureau of Land Management, cooperating agency/commenter",
+          "quote": "The NRC staff concurs with BLM and SDG&E that the proposed corridor poses fewer significant impacts than the alternative.",
+          "pages": [
+            "481-531"
+          ],
+          "score": 0
+        }
+      ],
+      "conditional": [
+        {
+          "entity": "Bureau of Land Management (BLM)",
+          "kind": "agency",
+          "role": "federal land management agency, commenter/reviewer",
+          "quote": "The NRC staff concludes that these impacts are acceptable, if mitigated as suggested by the Bureau of Land Management (BLM).",
+          "pages": [
+            "337-387"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "San Diego Gas and Electric Company",
+          "kind": "organization",
+          "role": "project applicant",
+          "quote": "The applicant has made an initial response to the proposal (ER, p. Q.3-1) indicating its willingness to consider such an alternative, but no detailed study has been performed.",
+          "pages": [
+            "481-531"
+          ],
+          "score": 0
+        }
+      ],
+      "neutral": [
+        {
+          "entity": "California Public Utilities Commission",
+          "kind": "agency",
+          "role": "regulatory body governing overhead line construction",
+          "quote": "Construction, maintenance, and operation of all overhead electrical supply and communication lines in the state of California are governed by \"Rules for Overhead Electric Line Construction,\" General Order No. 95, issued by the California Public Utilities Commission.",
+          "pages": [
+            "193-243"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Western Systems Coordinating Council",
+          "kind": "organization",
+          "role": "regional transmission planning body",
+          "quote": "The Western Systems Coordinating Council (WSCC) makes transmission line routing projections to ensure adequate electric service interties between western utilities.",
+          "pages": [
+            "145-195",
+            "385-435"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "Oak Ridge National Laboratory",
+          "kind": "organization",
+          "role": "developer of independent econometric model used by NRC staff",
+          "quote": "an independent regional forecast was prepared by the NRC staff using an econometric electrical energy demand model developed at Oak Ridge National Laboratory (ORNL).",
+          "pages": [
+            "385-435"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "Bureau of Reclamation",
+          "kind": "agency",
+          "role": "federal water management agency / cooperating agency",
+          "quote": "It may be noted that the Bureau of Reclamation considers wells on the Palo Verde Mesa to be independent of the Colorado River system (ER, p. 2.4-31).",
+          "pages": [
+            "145-195"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "U.S. Fish and Wildlife Service",
+          "kind": "agency",
+          "role": "federal agency operating the Cibola National Wildlife Refuge",
+          "quote": "Although the Cibola National Wildlife Refuge is not a major water user, it is a Federal project operated by the U.S. Fish and Wildlife Service.",
+          "pages": [
+            "145-195",
+            "579"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Bureau of Land Management (BLM)",
+          "kind": "agency",
+          "role": "cooperating agency / land manager",
+          "quote": "This line will be discussed in a separate Environmental Statement being written by Bureau of Land Management (BLM) in Arizona.",
+          "pages": [
+            "193-243",
+            "613"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "California Department of Fish and Game",
+          "kind": "agency",
+          "role": "state wildlife agency, referenced in impact analysis",
+          "quote": "If this tract were acquired for a wildlife refuge, the California Department of Fish and Game would construct a lake near the southwest corner.",
+          "pages": [
+            "285",
+            "481-531",
+            "579"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Department of the Interior",
+          "kind": "agency",
+          "role": "federal agency, commenter",
+          "quote": "However, the Department of the Interior does not foreclose the adoption of this alternative.",
+          "pages": [
+            "481-531"
+          ],
+          "score": 0
+        }
+      ],
+      "opposed": [
+        {
+          "entity": "NRC staff",
+          "kind": "agency",
+          "role": "Nuclear Regulatory Commission staff, EIS author/evaluator",
+          "quote": "Consequently, the NRC staff does not consider this an acceptable alternative.",
+          "pages": [
+            "481-531"
+          ],
+          "score": 0
+        }
+      ]
+    },
+    "top": [
+      {
+        "entity": "applicant",
+        "kind": "organization",
+        "role": "project applicant (SDG&E / Sundesert project proponent)",
+        "quote": "Multicell mechanical-draft cooling towers are proposed by the applicant as the most suitable method for waste heat dissipation at the Sundesert Nuclear Plant.",
+        "pages": [
+          "459"
+        ],
+        "score": 1.5,
+        "stance": "in_favor"
+      },
+      {
+        "entity": "City of Riverside",
+        "kind": "government",
+        "role": "project participant / 4% owner of Sundesert Nuclear Plant",
+        "quote": "Other entities planning to participate with SDG&E in the proposed plant are: the City of Anaheim (Anaheim), the City of Burbank (Burbank), the City of Glendale (Glendale), the City of Los Angeles Department of Water and Power (LADWP), the City of Pasadena (Pasadena), the City of Riverside (Riverside), and the California Department of Water Resources (CDWR).",
+        "pages": [
+          "1",
+          "385-435"
+        ],
+        "score": 1,
+        "stance": "in_favor"
+      },
+      {
+        "entity": "California Public Utilities Commission",
+        "kind": "agency",
+        "role": "regulatory body governing overhead line construction",
+        "quote": "Construction, maintenance, and operation of all overhead electrical supply and communication lines in the state of California are governed by \"Rules for Overhead Electric Line Construction,\" General Order No. 95, issued by the California Public Utilities Commission.",
+        "pages": [
+          "193-243"
+        ],
+        "score": 1,
+        "stance": "neutral"
+      },
+      {
+        "entity": "NRC staff",
+        "kind": "agency",
+        "role": "Nuclear Regulatory Commission staff, economic and environmental analyst",
+        "quote": "The NRC staff concurs with the applicant's position that, under present state law, the increased assessed valuation created by the nuclear plant construction should result in a sizable decrease in the PVUSD's annual tax rate for operations.",
+        "pages": [
+          "337-387",
+          "385-435",
+          "436",
+          "438",
+          "457",
+          "460",
+          "529",
+          "579"
+        ],
+        "score": 0.5,
+        "stance": "in_favor"
+      },
+      {
+        "entity": "Western Systems Coordinating Council",
+        "kind": "organization",
+        "role": "regional transmission planning body",
+        "quote": "The Western Systems Coordinating Council (WSCC) makes transmission line routing projections to ensure adequate electric service interties between western utilities.",
+        "pages": [
+          "145-195",
+          "385-435"
+        ],
+        "score": 0.5,
+        "stance": "neutral"
+      },
+      {
+        "entity": "Oak Ridge National Laboratory",
+        "kind": "organization",
+        "role": "developer of independent econometric model used by NRC staff",
+        "quote": "an independent regional forecast was prepared by the NRC staff using an econometric electrical energy demand model developed at Oak Ridge National Laboratory (ORNL).",
+        "pages": [
+          "385-435"
+        ],
+        "score": 0.5,
+        "stance": "neutral"
+      }
+    ]
+  },
+  "1d9ca3fe-6260-4990-b4aa-081821da89a5": {
+    "title": "Olympic Winter Games, 1980, Lake Placid, North Elba and Wilmington and vicinity : environmental impact statement.",
+    "stances": {
+      "in_favor": [
+        {
+          "entity": "David Curtin",
+          "kind": "official",
+          "role": "Olympic Accounts Manager, New York Telephone Company",
+          "quote": "It would be our intention to assure that the costs that we incur in providing temporary Olympic service will be recovered from those who use the temporary Olympic services; that is, the Olympic Committee, press agencies, broadcasters, timing company, computer company, etc.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 2
+        },
+        {
+          "entity": "CEI of Essex County",
+          "kind": "organization",
+          "role": "CSA grantee / operator of Olympic Bobrun",
+          "quote": "Our grantee, CEI of Essex County, has proven its worth as the actual operator of the Bobrun, and it is our recommendation, and indeed our assumption, that CFI will continue to fulfill this function during pre and post-Olympic periods.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Federal Bureau of Prisons",
+          "kind": "agency",
+          "role": "federal agency, proposed operator of Ray Brook after Olympic Games",
+          "quote": "Part of the LPOOC proposal calls for this facility to be handed over to the Federal Bureau of Prisons after the Games for use as a correctional institution for young men.",
+          "pages": [
+            "49-99",
+            "358",
+            "607"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "International Luge Federation (FIL)",
+          "kind": "organization",
+          "role": "international governing body for luge events",
+          "quote": "The alignment preferred by the LPOOC and the International Luge Federation (FIL) consists of a run that is generally parallel to the existing Bobsled run at Mt. Van Hoevenberg",
+          "pages": [
+            "49-99",
+            "742"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "Economic Development Administration (EDA)",
+          "kind": "agency",
+          "role": "Lead Federal Agency, U.S. Department of Commerce",
+          "quote": "The final determination of alternatives for detailed study has been the responsibility of the designated lead federal agency, EDA.",
+          "pages": [
+            "15",
+            "49-99"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "International Ski Federation (FIS)",
+          "kind": "organization",
+          "role": "international governing body for ski events",
+          "quote": "The terrain and orientation of the Intervale site have been examined by International Ski Federation (FIS) appointed ski hill authorities, with a concurrence that the site is suitable for a 90-Meter Jump.",
+          "pages": [
+            "49-99"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Lake Placid Airport Manager",
+          "kind": "official",
+          "role": "Airport Manager, Lake Placid Airport",
+          "quote": "This finding is conditional on FAA approved aircraft warning lights for the towers and has been confirmed by the Lake Placid Airport Manager.",
+          "pages": [
+            "193-243"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "International Olympic Committee (IOC)",
+          "kind": "organization",
+          "role": "governing body of the Olympic Games",
+          "quote": "The International Olympic Committee requires that these facilities be used for an international competition prior to the 1980 Olympic Games.",
+          "pages": [
+            "337",
+            "628"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Niagara Mohawk Power Company",
+          "kind": "organization",
+          "role": "Utility provider for Ray Brook and Lake Placid area",
+          "quote": "The Niagara Mohawk Power Company maintains that adequate bulk power exists by way of the Lake Colby source to supply the full systems requirements estimated in the preliminary study for Lake Placid Municipal Electric.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 0
+        }
+      ],
+      "conditional": [
+        {
+          "entity": "Barbara M. Metzger",
+          "kind": "official",
+          "role": "Chief, Environmental Impacts Branch, EPA Region II",
+          "quote": "It is our determination that the proposals will have acceptable impacts on air and water quality and, therefore, we have no objections to the project as proposed. Several questions, however, remain outstanding before we can complete our review, primarily in the area of water supply.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 4
+        },
+        {
+          "entity": "Charles Custard",
+          "kind": "official",
+          "role": "Director, Office of Environmental Affairs, HEW",
+          "quote": "From the standpoint of the concerns of this Department, we feel it is a well prepared statement.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 3
+        },
+        {
+          "entity": "Department of Health, Education, and Welfare",
+          "kind": "agency",
+          "role": "Federal agency commenter",
+          "quote": "Our only comment on the draft is in respect to the sanitary inspection system. We feel there is a need for sanitary inspection both during the games and the off-season period. This provision should be included in the final EIS.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 2
+        },
+        {
+          "entity": "FAA",
+          "kind": "agency",
+          "role": "Federal Aviation Administration",
+          "quote": "the FAA has issued a finding of \"not hazardous to navigation\" relative to the presence at Intervale of the twin ski jump towers. This finding is conditional on FAA approved aircraft warning lights for the towers and has been confirmed by the Lake Placid Airport Manager.",
+          "pages": [
+            "193-243"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Federal Aviation Administration",
+          "kind": "agency",
+          "role": "federal aviation regulator",
+          "quote": "FAA has made a \"Determination of No Hazard to Air Navigation,\" subject to the condition that the tower will be top-lighted with a red beacon and that FAA is informed not less than 90 days from the start of construction so that optional traffic patterns may be implemented.",
+          "pages": [
+            "728",
+            "729"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Community Services Administration",
+          "kind": "agency",
+          "role": "federal agency / regional office commenter",
+          "quote": "Our recommendation, therefore, is that EDA ensure that a combination of union and non-union labor be secured by establishing such requirements prior to the awarding of contracts.",
+          "pages": [
+            "774",
+            "817-867"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Department of the Interior",
+          "kind": "agency",
+          "role": "Federal agency commenter",
+          "quote": "We feel this environmental impact statement can be made adequate in its final form by inclusion and discussion of favorable commentaries from the State Historic Preservation Officer and the Advisory Council on Historic Preservation, by inclusion of a qualified archeologist's outlook on the probability of effect of the project on archeological values, and finally the display of a contingency plan for the protection of cultural resources during construction if any such values overlooked now become evident then.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 0.64
+        },
+        {
+          "entity": "U.S. Bureau of Prisons",
+          "kind": "agency",
+          "role": "Federal agency responsible for Ray Brook site",
+          "quote": "Representatives of the U.S. Bureau of Prisons will consult with the NYS Office of Historic Preservation (NYSOHP) to ascertain suitable methods of observing and recording potential archaeological or paleontological finds as earthwork commences.",
+          "pages": [
+            "289-339"
+          ],
+          "score": 0.5
+        },
+        {
+          "entity": "New York State Historic Preservation Officer",
+          "kind": "official",
+          "role": "State Historic Preservation Officer (SHPO)",
+          "quote": "The New York State Historic Preservation Officer, while noting the proposed jumps will have a significant visual effect, has concluded that the proposed jumps will not have an adverse impact on the overall program being carried out at John Brown's Farm.",
+          "pages": [
+            "7",
+            "193-243",
+            "721"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Advisory Council of Historic Preservation",
+          "kind": "agency",
+          "role": "Federal advisory body on historic preservation",
+          "quote": "The Advisory Council of Historic Preservation has indicated that they will want to participate in a memorandum of agreement to assure that there is no adverse effect by a continuing review process",
+          "pages": [
+            "289-339"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "Department of Housing and Urban Development",
+          "kind": "agency",
+          "role": "Federal agency commenter",
+          "quote": "It is recommended that the Final Environmental Impact Statement include an expanded analysis of the degree to which proposed Olympic Village alternatives could meet a specific need for such housing in the area.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 0
+        }
+      ],
+      "neutral": [
+        {
+          "entity": "Department of Labor",
+          "kind": "agency",
+          "role": "Federal agency commenter",
+          "quote": "We have reviewed the statement and have no comments.",
+          "pages": [
+            "4",
+            "713",
+            "817-867"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Robert L. Hilliard",
+          "kind": "official",
+          "role": "State Conservationist, Soil Conservation Service",
+          "quote": "We appreciate the opportunity to review and comment on this proposal.",
+          "pages": [
+            "817-867"
+          ],
+          "score": 1
+        },
+        {
+          "entity": "Soil Conservation Service",
+          "kind": "agency",
+          "role": "federal agency providing tolerable erosion rate standards",
+          "quote": "Soil Conservation Service recommended tolerable erosion rate for this soil is 54 cubic yards per acre per year.",
+          "pages": [
+            "261",
+            "817-867"
+          ],
+          "score": 0
+        },
+        {
+          "entity": "New York State Office of Historical Preservation",
+          "kind": "agency",
+          "role": "State historic preservation authority",
+          "quote": "A finding of \"no effect\" has been rendered by the New York State Office of Historical Preservation with respect to historic or archaeologic resources at the Field House Site, Speed Skating Oval, and at Intervale Ski Jump Site",
+          "pages": [
+            "289-339"
+          ],
+          "score": 0
+        }
+      ],
+      "opposed": [
+        {
+          "entity": "town of Jay",
+          "kind": "government",
+          "role": "local government / commenter",
+          "quote": "The town of Jay is not interested in the siting of a 90 Meter Ski Jump at Bassett Mountain. The Bassett Mountain area is now completely inaccessible for rublic travel.",
+          "pages": [
+            "726"
+          ],
+          "score": 1.5
+        }
+      ]
+    },
+    "top": [
+      {
+        "entity": "Barbara M. Metzger",
+        "kind": "official",
+        "role": "Chief, Environmental Impacts Branch, EPA Region II",
+        "quote": "It is our determination that the proposals will have acceptable impacts on air and water quality and, therefore, we have no objections to the project as proposed. Several questions, however, remain outstanding before we can complete our review, primarily in the area of water supply.",
+        "pages": [
+          "817-867"
+        ],
+        "score": 4,
+        "stance": "conditional"
+      },
+      {
+        "entity": "Charles Custard",
+        "kind": "official",
+        "role": "Director, Office of Environmental Affairs, HEW",
+        "quote": "From the standpoint of the concerns of this Department, we feel it is a well prepared statement.",
+        "pages": [
+          "817-867"
+        ],
+        "score": 3,
+        "stance": "conditional"
+      },
+      {
+        "entity": "David Curtin",
+        "kind": "official",
+        "role": "Olympic Accounts Manager, New York Telephone Company",
+        "quote": "It would be our intention to assure that the costs that we incur in providing temporary Olympic service will be recovered from those who use the temporary Olympic services; that is, the Olympic Committee, press agencies, broadcasters, timing company, computer company, etc.",
+        "pages": [
+          "817-867"
+        ],
+        "score": 2,
+        "stance": "in_favor"
+      },
+      {
+        "entity": "Department of Health, Education, and Welfare",
+        "kind": "agency",
+        "role": "Federal agency commenter",
+        "quote": "Our only comment on the draft is in respect to the sanitary inspection system. We feel there is a need for sanitary inspection both during the games and the off-season period. This provision should be included in the final EIS.",
+        "pages": [
+          "817-867"
+        ],
+        "score": 2,
+        "stance": "conditional"
+      },
+      {
+        "entity": "town of Jay",
+        "kind": "government",
+        "role": "local government / commenter",
+        "quote": "The town of Jay is not interested in the siting of a 90 Meter Ski Jump at Bassett Mountain. The Bassett Mountain area is now completely inaccessible for rublic travel.",
+        "pages": [
+          "726"
+        ],
+        "score": 1.5,
+        "stance": "opposed"
+      },
+      {
+        "entity": "CEI of Essex County",
+        "kind": "organization",
+        "role": "CSA grantee / operator of Olympic Bobrun",
+        "quote": "Our grantee, CEI of Essex County, has proven its worth as the actual operator of the Bobrun, and it is our recommendation, and indeed our assumption, that CFI will continue to fulfill this function during pre and post-Olympic periods.",
+        "pages": [
+          "817-867"
+        ],
+        "score": 1,
+        "stance": "in_favor"
+      }
+    ]
+  }
+}

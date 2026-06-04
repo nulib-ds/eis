@@ -36,6 +36,7 @@ import {
 <Container className="canopy-work--context">
   <MetadataField manifest={props.manifest} field="Historical Context" label="Historical Context" />
   <MetadataField manifest={props.manifest} field="Notable Quotes" label="Notable Quotes" />
+  <EISStakeholderQuotes manifest={props.manifest} />
 </Container>
 
 {/* ── People + Attribution: two columns ── */}
@@ -54,6 +55,11 @@ import {
       </a>
     )}
   </div>
+</Container>
+
+{/* ── Stakeholder Quotes (tabbed box; renders only for emotion-ranked docs) ── */}
+<Container className="canopy-work--quotes">
+  <EISStakeholderQuotes manifest={props.manifest} variant="box" />
 </Container>
 
 {/* ── Related Works ── */}

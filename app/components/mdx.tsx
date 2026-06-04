@@ -22,6 +22,7 @@ export const clientComponents = {
   EISAnnotations: './EISAnnotations.client.tsx',
   EISFilterBar: './EISFilterBar.client.tsx',
   EISRelatedWorks: './EISRelatedWorks.client.tsx',
+  EISStakeholderQuotes: './EISStakeholderQuotes.client.tsx',
   EISFeaturedWorks: './EISFeaturedWorks.client.tsx',
   EISRelatedThemes: './EISRelatedThemes.client.tsx',
   EISRandomDoc: './EISRandomDoc.client.tsx',

@@ -1,0 +1,321 @@
+{
+  "doc_id": "p1074_35556036862068",
+  "work_id": "1d9ca3fe-6260-4990-b4aa-081821da89a5",
+  "title": "Olympic Winter Games, 1980, Lake Placid, North Elba and Wilmington and vicinity : environmental impact statement.",
+  "estimated_pages": 961,
+  "n_entries": 281,
+  "verdict_counts": { "PASS": 24, "PASS_WITH_NOTE": 5, "RE_EXTRACT": 124, "HUMAN_REVIEW": 128 },
+  "_note": "Condensed sample: preserves the fields build-eis-quotes.mts reads. PASS/PASS_WITH_NOTE entries plus a couple of rejected rows to exercise the verdict filter. Replace with the full pipeline artifact.",
+  "entries": [
+    {
+      "sequence": 1,
+      "entity": "Adirondack Council",
+      "kind": "organization",
+      "role": "Participant in A.P.A. proceedings, commenter",
+      "stance": "neutral",
+      "summary_quote": "Written comments were received from the following sources:",
+      "evidence_pages": ["4", "625", "713"],
+      "critic": { "verdict": "RE_EXTRACT" }
+    },
+    {
+      "sequence": 14,
+      "entity": "Department of Labor",
+      "kind": "agency",
+      "role": "Federal agency commenter",
+      "stance": "neutral",
+      "summary_quote": "We have reviewed the statement and have no comments.",
+      "evidence_pages": ["4", "713", "817-867"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 17,
+      "entity": "Economic Development Administration (EDA)",
+      "kind": "agency",
+      "role": "Lead Federal Agency, U.S. Department of Commerce",
+      "stance": "in_favor",
+      "summary_quote": "The final determination of alternatives for detailed study has been the responsibility of the designated lead federal agency, EDA.",
+      "evidence_pages": ["15", "49-99"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 30,
+      "entity": "New York State Historic Preservation Officer",
+      "kind": "official",
+      "role": "State Historic Preservation Officer (SHPO)",
+      "stance": "conditional",
+      "summary_quote": "The New York State Historic Preservation Officer, while noting the proposed jumps will have a significant visual effect, has concluded that the proposed jumps will not have an adverse impact on the overall program being carried out at John Brown's Farm.",
+      "evidence_pages": ["7", "193-243", "721"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 38,
+      "entity": "Federal Bureau of Prisons",
+      "kind": "agency",
+      "role": "federal agency, proposed operator of Ray Brook after Olympic Games",
+      "stance": "in_favor",
+      "summary_quote": "Part of the LPOOC proposal calls for this facility to be handed over to the Federal Bureau of Prisons after the Games for use as a correctional institution for young men.",
+      "evidence_pages": ["49-99", "358", "607"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 39,
+      "entity": "International Luge Federation (FIL)",
+      "kind": "organization",
+      "role": "international governing body for luge events",
+      "stance": "in_favor",
+      "summary_quote": "The alignment preferred by the LPOOC and the International Luge Federation (FIL) consists of a run that is generally parallel to the existing Bobsled run at Mt. Van Hoevenberg",
+      "evidence_pages": ["49-99", "742"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 40,
+      "entity": "International Ski Federation (FIS)",
+      "kind": "organization",
+      "role": "international governing body for ski events",
+      "stance": "in_favor",
+      "summary_quote": "The terrain and orientation of the Intervale site have been examined by International Ski Federation (FIS) appointed ski hill authorities, with a concurrence that the site is suitable for a 90-Meter Jump.",
+      "evidence_pages": ["49-99"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 54,
+      "entity": "FAA",
+      "kind": "agency",
+      "role": "Federal Aviation Administration",
+      "stance": "conditional",
+      "summary_quote": "the FAA has issued a finding of \"not hazardous to navigation\" relative to the presence at Intervale of the twin ski jump towers. This finding is conditional on FAA approved aircraft warning lights for the towers and has been confirmed by the Lake Placid Airport Manager.",
+      "evidence_pages": ["193-243"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 55,
+      "entity": "Lake Placid Airport Manager",
+      "kind": "official",
+      "role": "Airport Manager, Lake Placid Airport",
+      "stance": "in_favor",
+      "summary_quote": "This finding is conditional on FAA approved aircraft warning lights for the towers and has been confirmed by the Lake Placid Airport Manager.",
+      "evidence_pages": ["193-243"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 63,
+      "entity": "Soil Conservation Service",
+      "kind": "agency",
+      "role": "federal agency providing tolerable erosion rate standards",
+      "stance": "neutral",
+      "summary_quote": "Soil Conservation Service recommended tolerable erosion rate for this soil is 54 cubic yards per acre per year.",
+      "evidence_pages": ["261", "817-867"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 66,
+      "entity": "Advisory Council of Historic Preservation",
+      "kind": "agency",
+      "role": "Federal advisory body on historic preservation",
+      "stance": "conditional",
+      "summary_quote": "The Advisory Council of Historic Preservation has indicated that they will want to participate in a memorandum of agreement to assure that there is no adverse effect by a continuing review process",
+      "evidence_pages": ["289-339"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 71,
+      "entity": "New York State Office of Historical Preservation",
+      "kind": "agency",
+      "role": "State historic preservation authority",
+      "stance": "neutral",
+      "summary_quote": "A finding of \"no effect\" has been rendered by the New York State Office of Historical Preservation with respect to historic or archaeologic resources at the Field House Site, Speed Skating Oval, and at Intervale Ski Jump Site",
+      "evidence_pages": ["289-339"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 72,
+      "entity": "U.S. Bureau of Prisons",
+      "kind": "agency",
+      "role": "Federal agency responsible for Ray Brook site",
+      "stance": "conditional",
+      "summary_quote": "Representatives of the U.S. Bureau of Prisons will consult with the NYS Office of Historic Preservation (NYSOHP) to ascertain suitable methods of observing and recording potential archaeological or paleontological finds as earthwork commences.",
+      "evidence_pages": ["289-339"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 79,
+      "entity": "International Olympic Committee (IOC)",
+      "kind": "organization",
+      "role": "governing body of the Olympic Games",
+      "stance": "in_favor",
+      "summary_quote": "The International Olympic Committee requires that these facilities be used for an international competition prior to the 1980 Olympic Games.",
+      "evidence_pages": ["337", "628"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 180,
+      "entity": "Federal Aviation Administration",
+      "kind": "agency",
+      "role": "federal aviation regulator",
+      "stance": "conditional",
+      "summary_quote": "FAA has made a \"Determination of No Hazard to Air Navigation,\" subject to the condition that the tower will be top-lighted with a red beacon and that FAA is informed not less than 90 days from the start of construction so that optional traffic patterns may be implemented.",
+      "evidence_pages": ["728", "729"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 187,
+      "entity": "town of Jay",
+      "kind": "government",
+      "role": "local government / commenter",
+      "stance": "opposed",
+      "summary_quote": "The town of Jay is not interested in the siting of a 90 Meter Ski Jump at Bassett Mountain. The Bassett Mountain area is now completely inaccessible for rublic travel.",
+      "evidence_pages": ["726"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 189,
+      "entity": "Community Services Administration",
+      "kind": "agency",
+      "role": "federal agency / regional office commenter",
+      "stance": "conditional",
+      "summary_quote": "Our recommendation, therefore, is that EDA ensure that a combination of union and non-union labor be secured by establishing such requirements prior to the awarding of contracts.",
+      "evidence_pages": ["774", "817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 194,
+      "entity": "Barbara M. Metzger",
+      "kind": "official",
+      "role": "Chief, Environmental Impacts Branch, EPA Region II",
+      "stance": "conditional",
+      "summary_quote": "It is our determination that the proposals will have acceptable impacts on air and water quality and, therefore, we have no objections to the project as proposed. Several questions, however, remain outstanding before we can complete our review, primarily in the area of water supply.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 195,
+      "entity": "CEI of Essex County",
+      "kind": "organization",
+      "role": "CSA grantee / operator of Olympic Bobrun",
+      "stance": "in_favor",
+      "summary_quote": "Our grantee, CEI of Essex County, has proven its worth as the actual operator of the Bobrun, and it is our recommendation, and indeed our assumption, that CFI will continue to fulfill this function during pre and post-Olympic periods.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS_WITH_NOTE" }
+    },
+    {
+      "sequence": 196,
+      "entity": "Charles Custard",
+      "kind": "official",
+      "role": "Director, Office of Environmental Affairs, HEW",
+      "stance": "conditional",
+      "summary_quote": "From the standpoint of the concerns of this Department, we feel it is a well prepared statement.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 198,
+      "entity": "David Curtin",
+      "kind": "official",
+      "role": "Olympic Accounts Manager, New York Telephone Company",
+      "stance": "in_favor",
+      "summary_quote": "It would be our intention to assure that the costs that we incur in providing temporary Olympic service will be recovered from those who use the temporary Olympic services; that is, the Olympic Committee, press agencies, broadcasters, timing company, computer company, etc.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 199,
+      "entity": "Department of Health, Education, and Welfare",
+      "kind": "agency",
+      "role": "Federal agency commenter",
+      "stance": "conditional",
+      "summary_quote": "Our only comment on the draft is in respect to the sanitary inspection system. We feel there is a need for sanitary inspection both during the games and the off-season period. This provision should be included in the final EIS.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 200,
+      "entity": "Department of Housing and Urban Development",
+      "kind": "agency",
+      "role": "Federal agency commenter",
+      "stance": "conditional",
+      "summary_quote": "It is recommended that the Final Environmental Impact Statement include an expanded analysis of the degree to which proposed Olympic Village alternatives could meet a specific need for such housing in the area.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 201,
+      "entity": "Department of the Interior",
+      "kind": "agency",
+      "role": "Federal agency commenter",
+      "stance": "conditional",
+      "summary_quote": "We feel this environmental impact statement can be made adequate in its final form by inclusion and discussion of favorable commentaries from the State Historic Preservation Officer and the Advisory Council on Historic Preservation, by inclusion of a qualified archeologist's outlook on the probability of effect of the project on archeological values, and finally the display of a contingency plan for the protection of cultural resources during construction if any such values overlooked now become evident then.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 202,
+      "entity": "Don Miller",
+      "kind": "official",
+      "role": "Executive Director, United States Olympic Committee",
+      "stance": "opposed",
+      "summary_quote": "Please be advised that because of time and economic considerations, it is imperative that winter sports facilities utilized in conjunction with National Training Centers being established by the United States Olympic Committee, that all such facilities be in close proximity to one another. Accordingly under no consideration could the USOC assume responsibility for the operation and maintenance of a 90-meter ski jump located outside the Town of North Elba.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "HUMAN_REVIEW" }
+    },
+    {
+      "sequence": 203,
+      "entity": "Environmental Protection Agency",
+      "kind": "agency",
+      "role": "Federal agency commenter (Region II)",
+      "stance": "conditional",
+      "summary_quote": "It is our determination that the proposals will have acceptable impacts on air and water quality and, therefore, we have no objections to the project as proposed. Several questions, however, remain outstanding before we can complete our review, primarily in the area of water supply.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 206,
+      "entity": "Niagara Mohawk Power Company",
+      "kind": "organization",
+      "role": "Utility provider for Ray Brook and Lake Placid area",
+      "stance": "in_favor",
+      "summary_quote": "The Niagara Mohawk Power Company maintains that adequate bulk power exists by way of the Lake Colby source to supply the full systems requirements estimated in the preliminary study for Lake Placid Municipal Electric.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 207,
+      "entity": "Robert J. Wolf",
+      "kind": "official",
+      "role": "Director, Department of Housing and Urban Development (regional office)",
+      "stance": "conditional",
+      "summary_quote": "It is recommended that the Final Environmental Impact Statement include an expanded analysis of the degree to which proposed Olympic Village alternatives could meet a specific need for such housing in the area.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 208,
+      "entity": "Robert L. Hilliard",
+      "kind": "official",
+      "role": "State Conservationist, Soil Conservation Service",
+      "stance": "neutral",
+      "summary_quote": "We appreciate the opportunity to review and comment on this proposal.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 209,
+      "entity": "Stanley D. Doreman",
+      "kind": "official",
+      "role": "Deputy Assistant Secretary of the Interior",
+      "stance": "conditional",
+      "summary_quote": "We feel this environmental impact statement can be made adequate in its final form by inclusion and discussion of favorable commentaries from the State Historic Preservation Officer and the Advisory Council on Historic Preservation, by inclusion of a qualified archeologist's outlook on the probability of effect of the project on archeological values, and finally the display of a contingency plan for the protection of cultural resources during construction if any such values overlooked now become evident then.",
+      "evidence_pages": ["817-867"],
+      "critic": { "verdict": "PASS" }
+    },
+    {
+      "sequence": 211,
+      "entity": "Adirondack Scenic, Inc.",
+      "kind": "organization",
+      "role": "Interested corporation, commenter",
+      "stance": "in_favor",
+      "summary_quote": "We also wish to join in the ranks of our Adirondack neighbors in encouraging you, as the lead organization, to continue your efforts in mounting a successful 1980 Winter Olympics.",
+      "evidence_pages": ["897"],
+      "critic": { "verdict": "HUMAN_REVIEW" }
+    }
+  ]
+}
