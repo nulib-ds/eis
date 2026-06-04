@@ -10,6 +10,7 @@ interface WorkEntry {
   state: string;
   themes: string[];
   manifestUrl: string;
+  href?: string;
   status: string;
 }
 
@@ -38,8 +39,9 @@ export default function EISFeaturedWorks() {
       <div className="eis-featured-works__grid">
         {works.map((w) => {
           const slug = slugFromUrl(w.manifestUrl);
+          const href = w.href ? `${base}${w.href}` : `${base}/works/${slug}.html`;
           return (
-            <a key={w.manifestUrl} href={`${base}/works/${slug}.html`} className="eis-related-card">
+            <a key={w.manifestUrl} href={href} className="eis-related-card">
               {w.thumbnail && (
                 <div className="eis-related-card__thumb">
                   <img src={w.thumbnail} alt="" loading="lazy" />

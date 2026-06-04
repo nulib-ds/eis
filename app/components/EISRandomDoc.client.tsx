@@ -10,6 +10,7 @@ interface WorkEntry {
   state: string;
   themes: string[];
   manifestUrl: string;
+  href?: string;
   status: string;
 }
 
@@ -66,15 +67,18 @@ export default function EISRandomDoc() {
   if (!current) return null;
 
   const slug = slugFromUrl(current.manifestUrl);
+  const workHref = current.href
+    ? `${base}${current.href}`
+    : `${base}/works/${slug}.html`;
 
   return (
     <div className="eis-random">
-      <a href={`${base}/works/${slug}.html`} className="eis-random__book">
+      <a href={workHref} className="eis-random__book">
         <img src={current.thumbnail} alt="" loading="lazy" />
       </a>
 
       <div className="eis-random__info">
-        <a href={`${base}/works/${slug}.html`} className="eis-random__title">
+        <a href={workHref} className="eis-random__title">
           {current.title}
         </a>
 

@@ -10,6 +10,7 @@ interface WorkEntry {
   state: string;
   themes: string[];
   manifestUrl: string;
+  href?: string;
   status: string;
 }
 
@@ -300,10 +301,13 @@ export default function EISRelatedThemes() {
         <div className="eis-themes-grid">
           {picks.map(({ work, theme }, idx) => {
             const slug = slugFromUrl(work.manifestUrl);
+            const href = work.href
+              ? `${base}${work.href}`
+              : `${base}/works/${slug}.html`;
             return (
               <a
                 key={`${work.manifestUrl}-${idx}`}
-                href={`${base}/works/${slug}.html`}
+                href={href}
                 className="eis-doc-card"
               >
                 <div className="eis-doc-card__thumb">

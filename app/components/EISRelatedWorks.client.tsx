@@ -10,6 +10,7 @@ interface WorkEntry {
   state: string;
   themes: string[];
   manifestUrl: string;
+  href?: string;
 }
 
 function slugFromUrl(manifestUrl: string): string {
@@ -35,7 +36,7 @@ function WorkCard({
   showYear: boolean;
 }) {
   const slug = slugFromUrl(work.manifestUrl);
-  const href = `${base}/works/${slug}.html`;
+  const href = work.href ? `${base}${work.href}` : `${base}/works/${slug}.html`;
   return (
     <a href={href} className="eis-related-card">
       {work.thumbnail && (
