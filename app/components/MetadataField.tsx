@@ -11,6 +11,10 @@ interface MetadataFieldProps {
   manifest: IIIFManifest;
   /** The metadata label to look up (e.g. "Main Location", "Key People") */
   field: string;
+  /** Fallback label to look up when `field` has no value (e.g. Bureau → Key People) */
+  fallbackField?: string;
+  /** When true, render only the first value (useful for the lead agency) */
+  firstOnly?: boolean;
   /** Optional heading to display above the value */
   label?: string;
   /** Optional prefix string prepended inline to the value */
@@ -33,11 +37,17 @@ function getValues(manifest: IIIFManifest, field: string): string[] {
 export default function MetadataField({
   manifest,
   field,
+  fallbackField,
+  firstOnly,
   label,
   prefix,
   display = "block",
 }: MetadataFieldProps) {
-  const values = getValues(manifest, field);
+  let values = getValues(manifest, field);
+  if (values.length === 0 && fallbackField) {
+    values = getValues(manifest, fallbackField);
+  }
+  if (firstOnly) values = values.slice(0, 1);
   if (values.length === 0) return null;
 
   if (display === "inline") {

@@ -23,7 +23,7 @@ import {
       <Summary manifest={props.manifest} as="p" className="canopy-work--summary" />
       <div className="canopy-work--details">
         <MetadataField manifest={props.manifest} field="Year" label="Year" />
-        <MetadataField manifest={props.manifest} field="Bureau" label="Department" />
+        <MetadataField manifest={props.manifest} field="Bureau" fallbackField="Key People and Groups" firstOnly label="Department" />
       </div>
       <div id="glossary-section"></div>
     </div>
