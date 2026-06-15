@@ -450,6 +450,26 @@ p.canopy-work--summary {
   color: #6A5885;
 }
 
+/* Clickable page reference that drives the in-page viewer (experimental). */
+.eis-page-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #6A5885;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.eis-page-link:hover,
+.eis-page-link:focus-visible {
+  color: #4a3c60;
+  text-decoration-thickness: 2px;
+}
+
 /* ── Stakeholder Quotes (standalone tabbed box) ──────────── */
 .eis-quotes-box {
   margin-top: 2.5rem;
@@ -472,6 +492,35 @@ p.canopy-work--summary {
   font-size: 0.85rem;
   color: #6b6577;
   margin: 0 0 1.25rem;
+}
+
+.eis-quotes-box__toggle {
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 1.25rem;
+  border: 1px solid #6A5885;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.eis-quotes-box__toggle-btn {
+  padding: 0.3rem 0.9rem;
+  border: none;
+  background: #fff;
+  color: #6A5885;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.eis-quotes-box__toggle-btn:not(:last-child) {
+  border-right: 1px solid #6A5885;
+}
+
+.eis-quotes-box__toggle-btn--active {
+  background: #6A5885;
+  color: #fff;
 }
 
 .eis-quotes-box__tabs {
@@ -564,6 +613,19 @@ p.canopy-work--summary {
   margin: 0.4rem 0 0;
   font-size: 0.82rem;
   color: #6A5885;
+}
+
+.eis-quotes-box .eis-quotes__stakeholder {
+  margin-bottom: 0.75rem;
+}
+
+.eis-quotes-box .eis-quotes__stakeholder .eis-quotes__attribution {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.eis-quotes__stakeholder-name {
+  font-weight: 700;
 }
 
 /* about/impact bar chart ──────────────────────────────── */

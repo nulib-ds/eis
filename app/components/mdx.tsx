@@ -31,5 +31,6 @@ export const clientComponents = {
   StickyLightbox: './Stickylightbox.client.tsx',
   EISMap: './EISMap.client.jsx',
   CitationGenerator: './CitationGenerator.client.tsx',
+  EISQuoteViewer: './EISQuoteViewer.client.tsx',
 };
 

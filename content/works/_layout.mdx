@@ -12,7 +12,9 @@ import {
 <Container variant="wide">
   <div className="canopy-work--hero">
     <div className="canopy-work--viewer">
-      <Viewer iiifContent={props.manifest.id} />
+      {props.manifest.homepage?.[0]?.id?.includes("a09ad3f4-1191-442f-8219-545f2e0a62a0")
+        ? <EISQuoteViewer manifestId={props.manifest.id} />
+        : <Viewer iiifContent={props.manifest.id} />}
     </div>
     <div className="canopy-work--header">
       <Label manifest={props.manifest} as="h1" />
