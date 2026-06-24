@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { getBasePath } from "../js/getBasePath";
+import { pageJumpEnabled } from "./eisPageJump";
+
+interface Mention {
+  quote: string;
+  pages: string[];
+  verified: boolean;
+  basis: string;
+}
 
 interface Quote {
   entity: string;
@@ -11,12 +19,47 @@ interface Quote {
   pages: string[];
   stance?: string;
   score?: number;
+  summary?: string;
+  statementForm?: string;
+  statementText?: string;
+  verified?: boolean;
+  attributionMode?: string;
+  mentions?: Mention[];
 }
 
 interface WorkQuotes {
   title: string;
   stances: Record<string, Quote[]>;
   top?: Quote[];
+  pageJump?: boolean;
+}
+
+/** Human label for a statement form value from the pipeline. */
+const STATEMENT_FORM_LABEL: Record<string, string> = {
+  letter: "Letter",
+  testimony: "Testimony",
+  written_comment: "Written comment",
+  narrator_paraphrase: "Summarized",
+  sectional: "Section",
+};
+
+/**
+ * Quiet provenance text shown after the attribution line: the statement form
+ * (Letter / Testimony / Summarized). Renders nothing when the form is unknown.
+ */
+function MetaIcons({ q }: { q: Quote }) {
+  const formLabel = q.statementForm
+    ? STATEMENT_FORM_LABEL[q.statementForm] ?? q.statementForm
+    : "";
+
+  if (!formLabel) return null;
+
+  return (
+    <span className="eis-quotes__meta">
+      {" · "}
+      {formLabel}
+    </span>
+  );
 }
 
 interface Manifest {
@@ -44,23 +87,27 @@ function workIdFromManifest(manifest: Manifest): string {
   return homepage.split("/").pop() ?? "";
 }
 
-/**
- * Experimental: this one document gets clickable page numbers that drive the
- * in-page viewer (see EISQuoteViewer.client.tsx). Every other work keeps the
- * plain-text page label.
- */
-const PAGE_JUMP_WORK_ID = "a09ad3f4-1191-442f-8219-545f2e0a62a0";
-
 function pageLabel(pages: string[]): string {
   if (!pages.length) return "";
   return ` (p. ${pages.join(", ")})`;
 }
 
-/** Plain text label, or clickable page links for the page-jump-enabled work. */
-function PageRef({ pages, workId }: { pages: string[]; workId: string }) {
+/**
+ * Plain text label, or clickable page links for page-jump-enabled works (those
+ * whose cited pages reliably resolve to manifest canvases — see eisPageJump.ts).
+ */
+function PageRef({
+  pages,
+  workId,
+  jump,
+}: {
+  pages: string[];
+  workId: string;
+  jump: boolean;
+}) {
   if (!pages.length) return null;
 
-  if (workId !== PAGE_JUMP_WORK_ID) {
+  if (!jump) {
     return <>{pageLabel(pages)}</>;
   }
 
@@ -95,11 +142,18 @@ function QuoteItem({
   q,
   showChip,
   workId,
+  jump,
 }: {
   q: Quote;
   showChip?: boolean;
   workId: string;
+  jump: boolean;
 }) {
+  const [showStatement, setShowStatement] = useState(false);
+  const formLabel = q.statementForm
+    ? STATEMENT_FORM_LABEL[q.statementForm] ?? q.statementForm
+    : "";
+
   return (
     <li className="eis-quotes__item">
       {showChip && q.stance && (
@@ -113,14 +167,40 @@ function QuoteItem({
       <p className="eis-quotes__attribution">
         — {q.entity}
         {q.role ? `, ${q.role}` : ""}
-        <PageRef pages={q.pages} workId={workId} />
+        <PageRef pages={q.pages} workId={workId} jump={jump} />
+        <MetaIcons q={q} />
       </p>
+      {q.statementText && (
+        <div className="eis-quotes__statement">
+          <button
+            type="button"
+            className="eis-quotes__statement-toggle"
+            aria-expanded={showStatement}
+            onClick={() => setShowStatement((v) => !v)}
+          >
+            {showStatement
+              ? "Hide full statement"
+              : `Read full ${formLabel ? formLabel.toLowerCase() : "statement"}`}
+          </button>
+          {showStatement && (
+            <pre className="eis-quotes__statement-text">{q.statementText}</pre>
+          )}
+        </div>
+      )}
     </li>
   );
 }
 
 /** Round-1 inline, stance-grouped panel (used when the work has no `top`). */
-function InlinePanel({ work, workId }: { work: WorkQuotes; workId: string }) {
+function InlinePanel({
+  work,
+  workId,
+  jump,
+}: {
+  work: WorkQuotes;
+  workId: string;
+  jump: boolean;
+}) {
   const groups = STANCE_GROUPS.map((g) => ({
     ...g,
     quotes: work.stances?.[g.key] ?? [],
@@ -139,7 +219,7 @@ function InlinePanel({ work, workId }: { work: WorkQuotes; workId: string }) {
           <span className="eis-quotes__stance">{g.label}</span>
           <ul className="eis-quotes__list">
             {g.quotes.map((q, i) => (
-              <QuoteItem key={i} q={q} workId={workId} />
+              <QuoteItem key={i} q={q} workId={workId} jump={jump} />
             ))}
           </ul>
         </div>
@@ -215,10 +295,12 @@ function StakeholderItem({
   s,
   showChip,
   workId,
+  jump,
 }: {
   s: Stakeholder;
   showChip?: boolean;
   workId: string;
+  jump: boolean;
 }) {
   return (
     <li className="eis-quotes__item eis-quotes__stakeholder">
@@ -230,17 +312,28 @@ function StakeholderItem({
       <p className="eis-quotes__attribution">
         <span className="eis-quotes__stakeholder-name">{s.entity}</span>
         {s.role ? `, ${s.role}` : ""}
-        <PageRef pages={s.pages} workId={workId} />
+        <PageRef pages={s.pages} workId={workId} jump={jump} />
       </p>
     </li>
   );
 }
 
 /** Standalone tabbed box with a "Top" featured view (used when `top` exists). */
-function TabbedBox({ work, workId }: { work: WorkQuotes; workId: string }) {
+function TabbedBox({
+  work,
+  workId,
+  jump,
+}: {
+  work: WorkQuotes;
+  workId: string;
+  jump: boolean;
+}) {
   const [view, setView] = useState<"quotes" | "stakeholders">("quotes");
   const [quotesTab, setQuotesTab] = useState<string>("top");
   const [stakeTab, setStakeTab] = useState<string>("all");
+  const [query, setQuery] = useState("");
+  const term = query.trim().toLowerCase();
+  const searching = term.length > 0;
 
   // Stance quotes don't carry a `stance` field — inject it from the group key so
   // ranking and the "All" stance chip work.
@@ -289,6 +382,17 @@ function TabbedBox({ work, workId }: { work: WorkQuotes; workId: string }) {
   const current = tabs.find((t) => t.key === active) ?? tabs[0];
   if (!current) return null;
 
+  // Search overrides the tabs: match name + role + quote text across all stances.
+  const matched = searching
+    ? allQuotes.filter((q) =>
+        `${q.entity} ${q.role} ${q.quote}`.toLowerCase().includes(term)
+      )
+    : [];
+  const matchedStakeholders = searching
+    ? rankStakeholders(stakeholdersFrom(matched, true))
+    : [];
+  const resultCount = isQuotes ? matched.length : matchedStakeholders.length;
+
   return (
     <div className="eis-quotes-box">
       <h2 className="eis-quotes-box__title">
@@ -297,6 +401,26 @@ function TabbedBox({ work, workId }: { work: WorkQuotes; workId: string }) {
       <p className="eis-quotes-box__hint">
         Toggle between notable quotes and the stakeholders behind them.
       </p>
+      <div className="eis-quotes-box__search">
+        <input
+          type="search"
+          className="eis-quotes-box__search-input"
+          placeholder="Search stakeholders by name, role, or quote…"
+          aria-label="Search stakeholders"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        {query && (
+          <button
+            type="button"
+            className="eis-quotes-box__search-clear"
+            aria-label="Clear search"
+            onClick={() => setQuery("")}
+          >
+            ✕
+          </button>
+        )}
+      </div>
       <div className="eis-quotes-box__toggle" role="tablist">
         <button
           type="button"
@@ -321,35 +445,59 @@ function TabbedBox({ work, workId }: { work: WorkQuotes; workId: string }) {
           Stakeholders
         </button>
       </div>
-      <div className="eis-quotes-box__tabs" role="tablist">
-        {tabs.map((t) => {
-          const isPlain = t.key === "top" || t.key === "all";
-          const count = "quotes" in t ? t.quotes.length : t.items.length;
-          return (
-            <button
-              key={t.key}
-              type="button"
-              role="tab"
-              aria-selected={t.key === current.key}
-              className={`eis-quotes-box__tab${
-                t.key === current.key ? " eis-quotes-box__tab--active" : ""
-              }${isPlain ? "" : ` eis-quotes__group--${t.key}`}`}
-              onClick={() => setActive(t.key)}
-            >
-              {t.label}
-              <span className="eis-quotes-box__count">{count}</span>
-            </button>
-          );
-        })}
-      </div>
+      {searching ? (
+        <p className="eis-quotes-box__results">
+          {resultCount === 0
+            ? `No stakeholders match “${query.trim()}”`
+            : `${resultCount} ${
+                resultCount === 1 ? "match" : "matches"
+              } across all stances`}
+        </p>
+      ) : (
+        <div className="eis-quotes-box__tabs" role="tablist">
+          {tabs.map((t) => {
+            const isPlain = t.key === "top" || t.key === "all";
+            const count = "quotes" in t ? t.quotes.length : t.items.length;
+            return (
+              <button
+                key={t.key}
+                type="button"
+                role="tab"
+                aria-selected={t.key === current.key}
+                className={`eis-quotes-box__tab${
+                  t.key === current.key ? " eis-quotes-box__tab--active" : ""
+                }${isPlain ? "" : ` eis-quotes__group--${t.key}`}`}
+                onClick={() => setActive(t.key)}
+              >
+                {t.label}
+                <span className="eis-quotes-box__count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
       <ul className="eis-quotes__list">
-        {isQuotes && "quotes" in current
+        {searching
+          ? isQuotes
+            ? matched.map((q, i) => (
+                <QuoteItem key={i} q={q} showChip workId={workId} jump={jump} />
+              ))
+            : matchedStakeholders.map((s, i) => (
+                <StakeholderItem
+                  key={i}
+                  s={s}
+                  showChip
+                  workId={workId}
+                  jump={jump}
+                />
+              ))
+          : isQuotes && "quotes" in current
           ? current.quotes.map((q, i) => (
-              <QuoteItem key={i} q={q} showChip workId={workId} />
+              <QuoteItem key={i} q={q} showChip workId={workId} jump={jump} />
             ))
           : "items" in current &&
             current.items.map((s, i) => (
-              <StakeholderItem key={i} s={s} showChip workId={workId} />
+              <StakeholderItem key={i} s={s} showChip workId={workId} jump={jump} />
             ))}
       </ul>
     </div>
@@ -385,10 +533,15 @@ export default function EISStakeholderQuotes({
 
   if (!loaded || !work) return null;
 
+  // Clickable page jumps only where pages reliably resolve to manifest canvases.
+  const jump = pageJumpEnabled(workId);
+
   // Each variant handles exactly one kind of work, so a page shows at most one.
   const hasTop = Array.isArray(work.top) && work.top.length > 0;
   if (variant === "box") {
-    return hasTop ? <TabbedBox work={work} workId={workId} /> : null;
+    return hasTop ? <TabbedBox work={work} workId={workId} jump={jump} /> : null;
   }
-  return hasTop ? null : <InlinePanel work={work} workId={workId} />;
+  return hasTop ? null : (
+    <InlinePanel work={work} workId={workId} jump={jump} />
+  );
 }

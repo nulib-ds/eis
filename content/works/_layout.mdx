@@ -8,11 +8,18 @@ import {
   References,
 } from "@canopy-iiif/app/ui/server";
 
+{/* Works whose cited pages reliably resolve to manifest canvases get the
+    controllable Clover viewer with clickable page-jump. Keep this list in sync
+    with PAGE_JUMP_WORK_IDS in app/components/eisPageJump.ts. */}
+export const PAGE_JUMP_WORK_IDS = [
+  "a09ad3f4-1191-442f-8219-545f2e0a62a0", // Sundesert Nuclear Power Plant
+];
+
 {/* ── Hero: viewer on left, title/location/summary on right ── */}
 <Container variant="wide">
   <div className="canopy-work--hero">
     <div className="canopy-work--viewer">
-      {props.manifest.homepage?.[0]?.id?.includes("a09ad3f4-1191-442f-8219-545f2e0a62a0")
+      {PAGE_JUMP_WORK_IDS.some((id) => props.manifest.homepage?.[0]?.id?.includes(id))
         ? <EISQuoteViewer manifestId={props.manifest.id} />
         : <Viewer iiifContent={props.manifest.id} />}
     </div>

@@ -470,6 +470,50 @@ p.canopy-work--summary {
   text-decoration-thickness: 2px;
 }
 
+/* ── Provenance meta text (statement form / verified) + disclosure ───── */
+.eis-quotes__meta {
+  color: #9a90b0;
+  font-style: normal;
+}
+
+.eis-quotes__statement {
+  margin-top: 0.5rem;
+}
+
+.eis-quotes__statement-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6A5885;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.eis-quotes__statement-toggle:hover,
+.eis-quotes__statement-toggle:focus-visible {
+  color: #4a3c60;
+}
+
+.eis-quotes__statement-text {
+  margin: 0.5rem 0 0;
+  padding: 0.75rem 1rem;
+  background: #f7f5fb;
+  border-left: 3px solid #cabfe0;
+  border-radius: 4px;
+  max-height: 22rem;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #3f3551;
+}
+
 /* ── Stakeholder Quotes (standalone tabbed box) ──────────── */
 .eis-quotes-box {
   margin-top: 2.5rem;
@@ -492,6 +536,60 @@ p.canopy-work--summary {
   font-size: 0.85rem;
   color: #6b6577;
   margin: 0 0 1.25rem;
+}
+
+/* ── Stakeholder search ──────────────────────────────────── */
+.eis-quotes-box__search {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.eis-quotes-box__search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 2.2rem 0.55rem 0.9rem;
+  border: 1px solid #cfc7dd;
+  border-radius: 999px;
+  background: #fff;
+  color: #3f3551;
+  font-size: 0.88rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.eis-quotes-box__search-input::placeholder {
+  color: #9a90b0;
+}
+
+.eis-quotes-box__search-input:focus {
+  outline: none;
+  border-color: #6A5885;
+  box-shadow: 0 0 0 2px rgba(106, 88, 133, 0.15);
+}
+
+.eis-quotes-box__search-clear {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  padding: 0.2rem 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: #9a90b0;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.eis-quotes-box__search-clear:hover,
+.eis-quotes-box__search-clear:focus-visible {
+  color: #6A5885;
+}
+
+.eis-quotes-box__results {
+  font-size: 0.85rem;
+  color: #6b6577;
+  margin: 0 0 1.5rem;
 }
 
 .eis-quotes-box__toggle {
@@ -568,9 +666,9 @@ p.canopy-work--summary {
 }
 
 .eis-quotes-box .eis-quotes__item {
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
   padding-left: 1rem;
-  border-left: 2px solid #cfc7dd;
+  border-left: 1px solid #e6e0f2;
 }
 
 .eis-quotes-box .eis-quotes__stance {

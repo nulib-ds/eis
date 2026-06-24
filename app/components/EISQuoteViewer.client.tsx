@@ -2,14 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import CloverViewer from "@samvera/clover-iiif/viewer";
+import { pageJumpEnabled } from "./eisPageJump";
 
 /**
- * Experimental, scoped to a single document (Sundesert Nuclear Power Plant).
  * Replaces the default Canopy viewer with a controllable Clover viewer that
  * listens for `eis-goto-page` events dispatched by the stakeholder-quote page
  * links (see EISStakeholderQuotes.client.tsx) and jumps to the cited page.
+ *
+ * Used only for page-jump-enabled works (see eisPageJump.ts) — those whose
+ * cited page numbers reliably resolve to manifest canvas labels.
  */
-const PAGE_JUMP_WORK_ID = "a09ad3f4-1191-442f-8219-545f2e0a62a0";
 
 interface CanvasLike {
   id: string;
@@ -70,7 +72,7 @@ export default function EISQuoteViewer({ manifestId }: { manifestId: string }) {
   useEffect(() => {
     function onGoto(e: Event) {
       const detail = (e as CustomEvent).detail || {};
-      if (detail.workId !== PAGE_JUMP_WORK_ID) return;
+      if (!detail.workId || !pageJumpEnabled(detail.workId)) return;
       // A range like "145-195" jumps to its start page.
       const start = String(detail.page ?? "").split("-")[0].trim();
       const canvasId = labelToCanvas.current.get(start);
@@ -86,7 +88,20 @@ export default function EISQuoteViewer({ manifestId }: { manifestId: string }) {
   return (
     <div ref={wrapRef}>
       {mounted ? (
-        <CloverViewer key={viewerKey} iiifContent={iiifContent as string} />
+        <CloverViewer
+          key={viewerKey}
+          iiifContent={iiifContent as string}
+          options={{
+            showDownload: false,
+            showIIIFBadge: false,
+            showTitle: false,
+            informationPanel: {
+              open: false,
+              renderAbout: false,
+              renderToggle: false,
+            },
+          }}
+        />
       ) : (
         <div className="canopy-viewer-placeholder" aria-hidden="true" />
       )}

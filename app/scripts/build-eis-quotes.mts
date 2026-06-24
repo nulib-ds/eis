@@ -31,14 +31,23 @@ const ACCEPTED_VERDICTS = new Set(["PASS", "PASS_WITH_NOTE"]);
 const STANCE_ORDER = ["in_favor", "conditional", "neutral", "opposed"] as const;
 type Stance = (typeof STANCE_ORDER)[number];
 
-/** Work IDs that get emotion ranking + a `top` featured view. */
+/** Work IDs that get emotion ranking + a `top` featured view (TabbedBox UI). */
 const EMOTION_DOCS = new Set([
   "1d9ca3fe-6260-4990-b4aa-081821da89a5", // Lake Placid 1980 Winter Olympics
   "a09ad3f4-1191-442f-8219-545f2e0a62a0", // Sundesert Nuclear Power Plant
+  "f009744b-3e0c-4e53-97b5-e3262f036b8b", // Off-road vehicles / Executive Order 11644
 ]);
 
 /** Number of quotes shown in the "Top" featured view. */
 const TOP_N = 6;
+
+interface MentionEntry {
+  quote?: string;
+  pages?: string[];
+  attribution_mode?: string;
+  quote_verified?: boolean;
+  stance_basis?: string;
+}
 
 interface ExtractionEntry {
   entity?: string;
@@ -48,12 +57,28 @@ interface ExtractionEntry {
   summary_quote?: string;
   evidence_pages?: string[];
   critic?: { verdict?: string };
+  // Richer fields from the full pipeline output (optional; absent in older samples).
+  summary?: string;
+  statement_form?: string;
+  statement_text?: string;
+  summary_quote_verified?: boolean;
+  attribution_mode?: string;
+  mentions?: MentionEntry[];
 }
 
 interface ExtractionFile {
   work_id?: string;
   title?: string;
+  /** Whether this work supports in-viewer page jumps (see eisPageJump.ts). */
+  page_jump?: boolean;
   entries?: ExtractionEntry[];
+}
+
+interface Mention {
+  quote: string;
+  pages: string[];
+  verified: boolean;
+  basis: string;
 }
 
 interface Quote {
@@ -64,12 +89,21 @@ interface Quote {
   pages: string[];
   stance?: Stance;
   score?: number;
+  // Richer fields (optional; only emitted when present in the source).
+  summary?: string;
+  statementForm?: string;
+  statementText?: string;
+  verified?: boolean;
+  attributionMode?: string;
+  mentions?: Mention[];
 }
 
 interface WorkQuotes {
   title: string;
   stances: Record<Stance, Quote[]>;
   top?: Quote[];
+  /** Cited page numbers resolve to manifest canvases → clickable jump links. */
+  pageJump?: boolean;
 }
 
 function emptyStances(): Record<Stance, Quote[]> {
@@ -169,6 +203,7 @@ function main(): void {
     const emotion = EMOTION_DOCS.has(workId);
     const work: WorkQuotes =
       out[workId] ?? { title: data.title ?? "", stances: emptyStances() };
+    if (data.page_jump) work.pageJump = true;
 
     const seen = new Set<string>(); // dedupe identical quote strings per work
 
@@ -199,6 +234,23 @@ function main(): void {
         quote,
         pages: entry.evidence_pages ?? [],
       };
+
+      // Carry through the richer pipeline fields when present.
+      if (entry.summary) q.summary = entry.summary.trim();
+      if (entry.statement_form) q.statementForm = entry.statement_form;
+      if (entry.statement_text) q.statementText = entry.statement_text.trim();
+      if (entry.summary_quote_verified) q.verified = true;
+      if (entry.attribution_mode) q.attributionMode = entry.attribution_mode;
+      const mentions = (entry.mentions ?? [])
+        .filter((m) => (m.quote ?? "").trim())
+        .map((m) => ({
+          quote: (m.quote ?? "").trim(),
+          pages: m.pages ?? [],
+          verified: Boolean(m.quote_verified),
+          basis: m.stance_basis ?? "",
+        }));
+      if (mentions.length) q.mentions = mentions;
+
       if (emotion) q.score = scoreEmotion(quote);
 
       work.stances[stance].push(q);
