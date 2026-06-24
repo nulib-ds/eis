@@ -405,7 +405,7 @@ function TabbedBox({
         <input
           type="search"
           className="eis-quotes-box__search-input"
-          placeholder="Search stakeholders by name, role, or quote…"
+          placeholder="Search stakeholders by name, role, or quote"
           aria-label="Search stakeholders"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
