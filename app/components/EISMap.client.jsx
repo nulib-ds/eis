@@ -155,7 +155,7 @@ export default function EISMap({ style }) {
       setLoading(false);
     };
 
-    mount().catch(console.error);
+    mount().catch(() => {});
 
     return () => {
       cancelled = true;

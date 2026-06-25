@@ -592,7 +592,6 @@ export default function SigmaExample({...rest}) {
           setLoading(false);
         }
       } catch (err) {
-        console.error("Failed to load collection:", err);
         if (!cancelled) setLoading(false);
       }
     }
