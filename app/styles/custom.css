@@ -1,3 +1,8 @@
+/* Keep the header (and its live search dropdown) above page content */
+.canopy-header {
+  z-index: 50;
+}
+
 /* ── Works page palette ──────────────────────────────────────
    #6A5885  deep purple  (accents, labels, borders)
    #f2f0f6  light purple tint  (section backgrounds)
